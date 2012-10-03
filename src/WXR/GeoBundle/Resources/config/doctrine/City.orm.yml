@@ -1,5 +1,6 @@
 WXR\GeoBundle\Entity\City:
     type: entity
+    table: wxr_geo_city
     id:
         id:
             type: integer

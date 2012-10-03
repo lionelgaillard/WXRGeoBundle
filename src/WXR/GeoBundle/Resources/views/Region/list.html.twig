@@ -1,0 +1,41 @@
+{% extends "WXRGeoBundle::layout.html.twig" %}
+
+{% block content %}
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <a class="btn btn-primary" href="{{ path('wxr_geo_region_add') }}"><i class="icon-plus icon-white"></i> {{ 'wxr_geo.region.add'|trans }}</a>
+  </div>
+</div>
+
+{% if regions %}
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>{{ 'wxr_geo.region.iso'|trans }}</th>
+      <th>{{ 'wxr_geo.region.abbreviation'|trans }}</th>
+      <th>{{ 'wxr_geo.region.name'|trans }}</th>
+      <th>{{ 'wxr_geo.region.country'|trans }}</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for region in regions %}
+    <tr>
+      <td>{{ region.getIso() }}</td>
+      <td>{{ region.getAbbreviation() }}</td>
+      <td>{{ region.getName() }}</td>
+      <td>{% if region.getCountry() %}{{ region.getCountry().getName() }}{% endif %}</td>
+      <td>
+        <div class="btn-group">
+          <a class="btn" href="{{ path('wxr_geo_region_edit', { id: region.getId() }) }}"><i class="icon-pencil"></i></a>
+          <a class="btn btn-danger" href="{{ path('wxr_geo_region_delete', { id: region.getId() }) }}"><i class="icon-trash icon-white"></i></a>
+        </div>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>{{ 'wxr_geo.region.none'|trans }}</p>
+{% endif %}
+{% endblock %}

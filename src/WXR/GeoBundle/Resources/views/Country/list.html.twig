@@ -1,0 +1,37 @@
+{% extends "WXRGeoBundle::layout.html.twig" %}
+
+{% block content %}
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <a class="btn btn-primary" href="{{ path('wxr_geo_country_add') }}"><i class="icon-plus icon-white"></i> {{ 'wxr_geo.country.add'|trans }}</a>
+  </div>
+</div>
+
+{% if countries %}
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>{{ 'wxr_geo.country.iso'|trans }}</th>
+      <th>{{ 'wxr_geo.country.name'|trans }}</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for country in countries %}
+    <tr>
+      <td>{{ country.getIso() }}</td>
+      <td>{{ country.getName() }}</td>
+      <td>
+        <div class="btn-group">
+          <a class="btn" href="{{ path('wxr_geo_country_edit', { id: country.getId() }) }}"><i class="icon-pencil"></i></a>
+          <a class="btn btn-danger" href="{{ path('wxr_geo_country_delete', { id: country.getId() }) }}"><i class="icon-trash icon-white"></i></a>
+        </div>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>{{ 'wxr_geo.country.none'|trans }}</p>
+{% endif %}
+{% endblock %}

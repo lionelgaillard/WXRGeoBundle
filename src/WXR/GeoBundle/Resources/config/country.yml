@@ -1,0 +1,20 @@
+services:
+
+    wxr_geo.country.default_manager:
+        class: WXR\GeoBundle\Entity\CountryManager
+        arguments: [@doctrine.orm.entity_manager, %wxr_geo.country.class%]
+
+    wxr_geo.country.form:
+        factory_service: form.factory
+        factory_method: create
+        class: Symfony\Component\Form\Form
+        arguments: [ @wxr_geo.country.form.type ]
+
+    wxr_geo.country.form.default_type:
+        class: WXR\GeoBundle\Form\Type\CountryType
+        arguments: [ %wxr_geo.country.class% ]
+
+    wxr_geo.country.form.default_handler:
+        class: WXR\GeoBundle\Form\Handler\CountryHandler
+        scope: request
+        arguments: [ @request, @wxr_geo.country.form, @wxr_geo.country.manager ]

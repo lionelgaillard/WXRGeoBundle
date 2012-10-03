@@ -1,0 +1,32 @@
+WXR\GeoBundle\Entity\Location:
+    type: entity
+    table: wxr_geo_location
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn: { name: discr, type: string, length: 10 }
+    discriminatorMap:
+        city: City
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            length: 50
+        latitude:
+            type: decimal
+            precision: 8
+            scale: 6
+            nullable: true
+        longitude:
+            type: decimal
+            precision: 8
+            scale: 6
+            nullable: true
+    manyToOne:
+        region:
+            targetEntity: Region
+            inversedBy: locations
+            joinColumn:
+                name: region_id
+                referencedColumnName: id
+                onDelete: SET NULL

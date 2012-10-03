@@ -1,0 +1,38 @@
+namespaces:
+    ORM: Symfony\Bridge\Doctrine\Validator\Constraints\
+
+WXR\GeoBundle\Entity\Country:
+    constraints:
+        - "ORM:UniqueEntity": { fields: iso, message: wxr_geo.country.iso.already_used }
+    proterties:
+        iso:
+            - NotBlank: { message: wxr_geo.country.iso.blank }
+            - MinLength: { limit: 2, message: wxr_geo.country.iso.short }
+            - MaxLength: { limit: 2, message: wxr_geo.country.iso.long }
+        name:
+            - NotBlank: { message: wxr_geo.country.name.blank }
+
+WXR\GeoBundle\Entity\Region:
+    constraints:
+        - "ORM:UniqueEntity": { fields: iso, message: wxr_geo.region.iso.already_used }
+    properties:
+        iso:
+            - NotBlank: { message: wxr_geo.region.iso.blank }
+            - MinLength: { limit: 5, message: wxr_geo.region.iso.short }
+            - MaxLength: { limit: 5, message: wxr_geo.region.iso.long }
+        abbreviation:
+            - NotBlank: { message: wxr_geo.region.iso.blank }
+            - MinLength: { limit: 2, message: wxr_geo.region.iso.short }
+            - MaxLength: { limit: 2, message: wxr_geo.region.iso.long }
+        name:
+            - NotBlank: { message: wxr_geo.region.name.blank }
+
+WXR\GeoBundle\Entity\Location:
+    properties:
+        name:
+            - NotBlank: { message: wxr_geo.location.name.blank }
+
+WXR\GeoBundle\Entity\City:
+    properties:
+        postalCode:
+            - NotBlank: { message: wxr_geo.city.postal_code.blank }

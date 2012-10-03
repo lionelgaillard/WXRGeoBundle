@@ -1,0 +1,26 @@
+WXR\GeoBundle\Entity\Region:
+    type: entity
+    table: wxr_geo_region
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        iso:
+            length: 5
+        abbreviation:
+            length: 2
+        name:
+            length: 50
+    manyToOne:
+        country:
+            targetEntity: Country
+            inversedBy: regions
+            joinColumn:
+                name: country_id
+                referencedColumnName: id
+                onDelete: SET NULL
+    oneToMany:
+        locations:
+            targetEntity: Location
+            mappedBy: region

@@ -1,0 +1,27 @@
+wxr_geo:
+    country:
+        iso:
+            already_used: The code is already used
+            blank: Please enter a code
+            short: "[-Inf,Inf]The code is too short"
+            long: "[-Inf,Inf]The code is too long"
+        name:
+            blank: Please enter a name
+    region:
+        iso:
+            already_used: The code is already used
+            blank: Please enter a code
+            short: "[-Inf,Inf]The code is too short"
+            long: "[-Inf,Inf]The code is too long"
+        abbreviation:
+            blank: Please enter an abbreviation
+            short: "[-Inf,Inf]The abbreviation is too short"
+            long: "[-Inf,Inf]The abbreviation is too long"
+        name:
+            blank: Please enter a name
+    location:
+        name:
+            blank: Please enter a name
+    city:
+        postal_code:
+            blank: Please enter a postal code

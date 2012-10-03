@@ -1,0 +1,30 @@
+{
+    "name": "wxr/geo-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony WXRGeoBundle",
+    "keywords": [ "geo", "country", "region", "city", "location", "address" ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lionel Gaillard",
+            "email": "lionel.gaillard@wxrstudios.com",
+            "homepage": "http://wxrstudios.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "2.1.*",
+        "wxr/common-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "WXR\\Geo": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        }
+    }
+}

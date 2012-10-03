@@ -1,0 +1,6 @@
+WXR\GeoBundle\Entity\City:
+    type: entity
+    fields:
+        postalCode:
+            name: postal_code
+            length: 10

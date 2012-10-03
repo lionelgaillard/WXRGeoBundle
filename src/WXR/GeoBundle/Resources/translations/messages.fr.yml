@@ -1,0 +1,60 @@
+wxr_geo:
+    country:
+        country: Pays
+        iso: Code ISO
+        name: Nom
+        list: Liste des pays
+        add: Ajouter un pays
+        edit: Editer le pays
+        save: Enregistrer le pays
+        reset: Réinitialiser
+        delete: Supprimer le pays
+        added: Le pays a été ajouté
+        updated: Le pays a été modifié
+        deleted: Le pays a été supprimé
+        none: Aucun pays
+    region:
+        region: Région
+        iso: Code ISO
+        abbreviation: Abbréviation
+        name: Nom
+        country: Pays
+        list: Liste des régions
+        add: Ajouter une région
+        edit: Editer la région
+        save: Enregistrer la région
+        reset: Réinitialiser
+        delete: Supprimer la région
+        added: La région a été ajoutée
+        updated: La région a été modifiée
+        deleted: La région a été supprimée
+        none: Aucune région
+    location:
+        location: Lieux
+        name: Nom
+        latitude: Latitude
+        longitude: Longitude
+        region: Région
+        list: Liste des lieux
+        add: Ajouter un lieu
+        edit: Editer le lieu
+        save: Enregistrer le lieu
+        reset: Réinitialiser
+        delete: Supprimer le lieu
+        added: Le lieu a été ajouté
+        updated: Le lieu a été modifié
+        deleted: Le lieu a été supprimé
+        none: Aucun lieu
+    city:
+        city: Ville
+        postal_code: Code postal
+        list: Liste des villes
+        add: Ajouter une ville
+        edit: Editer la ville
+        save: Enregistrer la ville
+        reset: Réinitialiser
+        delete: Supprimer la ville
+        added: La ville a été ajoutée
+        updated: La ville a été modifiée
+        deleted: La ville a été supprimée
+        none: Aucune ville

@@ -1,0 +1,15 @@
+wxr_geo_region_list:
+    pattern: /list
+    defaults: { _controller: WXRGeoBundle:Region:list }
+
+wxr_geo_region_add:
+    pattern: /add
+    defaults: { _controller:WXRGeoBundle:Region:add }
+
+wxr_geo_region_edit:
+    pattern: /edit/{id}
+    defaults: { _controller:WXRGeoBundle:Region:edit }
+
+wxr_geo_region_delete:
+    pattern: /delete/{id}
+    defaults: { _controller:WXRGeoBundle:Region:delete }

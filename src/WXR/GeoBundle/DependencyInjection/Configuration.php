@@ -23,6 +23,7 @@ class Configuration implements ConfigurationInterface
         $this->addCountrySection($rootNode);
         $this->addRegionSection($rootNode);
         $this->addCitySection($rootNode);
+        $this->addLocationSection($rootNode);
 
         return $treeBuilder;
     }
@@ -96,4 +97,26 @@ class Configuration implements ConfigurationInterface
         ;
     }
 
+    private function addLocationSection($rootNode)
+    {
+        $rootNode
+            ->children()
+                ->arrayNode('location')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->scalarNode('class')->defaultValue('WXR\GeoBundle\Entity\Location')->end()
+                        ->scalarNode('manager')->defaultValue('wxr_geo.location.default_manager')->end()
+                        ->arrayNode('form')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('type')->defaultValue('wxr_geo.location.form.default_type')->end()
+                                ->scalarNode('handler')->defaultValue('wxr_geo.location.form.default_handler')->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+    }
 }

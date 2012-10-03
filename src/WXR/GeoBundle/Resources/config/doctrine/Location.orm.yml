@@ -5,10 +5,9 @@ WXR\GeoBundle\Entity\Location:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        name:
-            length: 50
         street:
-            length: 100
+            type: string
+            length: 255
         latitude:
             type: decimal
             precision: 8

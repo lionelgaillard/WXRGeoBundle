@@ -1,7 +1,7 @@
 services:
 
     wxr_geo.city.default_manager:
-        class: WXR\GeoBundle\Entity\LocationManager
+        class: WXR\GeoBundle\Entity\CityManager
         arguments: [@doctrine.orm.entity_manager, %wxr_geo.city.class%]
 
     wxr_geo.city.form:

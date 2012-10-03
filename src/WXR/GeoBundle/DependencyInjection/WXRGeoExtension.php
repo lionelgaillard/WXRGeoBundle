@@ -27,6 +27,7 @@ class WXRGeoExtension extends Extension
         $this->loadCountry($config['country'], $container, $loader);
         $this->loadRegion($config['region'], $container, $loader);
         $this->loadCity($config['city'], $container, $loader);
+        $this->loadLocation($config['location'], $container, $loader);
     }
 
     private function loadCountry(array $config, ContainerBuilder $container, Loader\YamlFileLoader $loader)
@@ -92,6 +93,28 @@ class WXRGeoExtension extends Extension
 
         // City form handler
         $container->setAlias('wxr_geo.city.form.handler', $config['form']['handler']);
+        unset($config['form']['handler']);
+    }
+
+    private function loadLocation(array $config, ContainerBuilder $container, Loader\YamlFileLoader $loader)
+    {
+        $loader->load('location.yml');
+
+        // Location class
+        $container->setParameter('wxr_geo.location.class', $config['class']);
+        unset($config['class']);
+
+        // Location manager
+        $container->setAlias('wxr_geo.location.manager', $config['manager']);
+        unset($config['manager']);
+
+        // Location form type
+        $container->setAlias('wxr_geo.location.form.type', $config['form']['type']);
+        $container->getDefinition($config['form']['type'])->addTag('form.type', array('alias' => 'location'));
+        unset($config['form']['type']);
+
+        // Location form handler
+        $container->setAlias('wxr_geo.location.form.handler', $config['form']['handler']);
         unset($config['form']['handler']);
     }
 

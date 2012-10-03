@@ -9,6 +9,6 @@ use WXR\GeoBundle\Model\Location as BaseLocation;
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-abstract class Location extends BaseLocation
+class Location extends BaseLocation
 {
 }

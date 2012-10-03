@@ -1,6 +1,24 @@
 WXR\GeoBundle\Entity\City:
     type: entity
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
     fields:
         postalCode:
             name: postal_code
             length: 10
+        name:
+            length: 50
+    manyToOne:
+        region:
+            targetEntity: Region
+            inversedBy: cities
+            joinColumn:
+                name: region_id
+                referencedColumnName: id
+                onDelete: SET NULL
+    oneToMany:
+        locations:
+            targetEntity: Location
+            mappedBy: city

@@ -27,12 +27,14 @@ WXR\GeoBundle\Entity\Region:
         name:
             - NotBlank: { message: wxr_geo.region.name.blank }
 
-WXR\GeoBundle\Entity\Location:
-    properties:
-        name:
-            - NotBlank: { message: wxr_geo.location.name.blank }
-
 WXR\GeoBundle\Entity\City:
     properties:
         postalCode:
             - NotBlank: { message: wxr_geo.city.postal_code.blank }
+        name:
+            - NotBlank: { message: wxr_geo.city.name.blank }
+
+WXR\GeoBundle\Entity\Location:
+    properties:
+        street:
+            - NotBlank: { message: wxr_geo.location.street.blank }

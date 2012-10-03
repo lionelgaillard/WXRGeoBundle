@@ -4,65 +4,75 @@ namespace WXR\GeoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-use WXR\GeoBundle\Model\LocationInterface;
+use WXR\GeoBundle\Model\CityInterface;
 use WXR\GeoBundle\Model\Region as BaseRegion;
 
+/**
+ * WXR\GeoBundle\Entity\Region
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
 class Region extends BaseRegion
 {
     public function __construct()
     {
         parent::__construct();
-
-        $this->locations = new ArrayCollection();
+        $this->cities = new ArrayCollection();
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function addLocation(LocationInterface $location)
+    public function addCity(CityInterface $city)
     {
-        if (!$this->hasLocation($location)) {
-            $this->locations->add($location);
+        if (!$this->hasCity($city)) {
+            $city->setRegion($this);
+            $this->cities->add($city);
         }
 
         return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function removeLocation(LocationInterface $location)
+    public function removeCity(CityInterface $city)
     {
-        if ($this->hasLocation($location)) {
-            $this->locations->removeElement($location);
+        if ($this->hasCity($city)) {
+            $city->setRegion(null);
+            $this->cities->removeElement($city);
         }
 
         return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function clearLocations()
+    public function clearCities()
     {
-        $this->locations = new ArrayCollection();
+        foreach ($this->cities as $city) {
+            $city->setRegion(null);
+        }
+
+        $this->cities = new ArrayCollection();
 
         return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function getLocations()
+    public function getCities()
     {
-        return $this->locations->toArray();
+        return $this->cities->toArray();
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function hasLocation(LocationInterface $location)
+    public function hasCity(CityInterface $city)
     {
-        return $this->locations->contains($location);
+        return $this->cities->contains($city);
     }
 }

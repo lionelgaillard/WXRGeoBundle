@@ -7,6 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use WXR\GeoBundle\Model\Country as BaseCountry;
 use WXR\GeoBundle\Model\RegionInterface;
 
+/**
+ * WXR\GeoBundle\Entity\Country
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
 class Country extends BaseCountry
 {
     public function __construct()
@@ -22,6 +27,7 @@ class Country extends BaseCountry
     public function addRegion(RegionInterface $region)
     {
         if (!$this->hasRegion($region)) {
+            $region->setCountry($this);
             $this->regions->add($region);
         }
 
@@ -34,6 +40,7 @@ class Country extends BaseCountry
     public function removeRegion(RegionInterface $region)
     {
         if ($this->hasRegion($region)) {
+            $region->setCountry(null);
             $this->regions->removeElement($region);
         }
 
@@ -45,6 +52,10 @@ class Country extends BaseCountry
      */
     public function clearRegions()
     {
+        foreach ($this->regions as $region) {
+            $region->setCountry(null);
+        }
+
         $this->regions = new ArrayCollection();
 
         return $this;

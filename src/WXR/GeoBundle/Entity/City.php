@@ -2,21 +2,33 @@
 
 namespace WXR\GeoBundle\Entity;
 
-use WXR\GeoBundle\Model\CityInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
-class City extends Location implements CityInterface
+use WXR\GeoBundle\Model\City as BaseCity;
+use WXR\GeoBundle\Model\LocationInterface;
+
+/**
+ * WXR\GeoBundle\Entity\City
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
+class City extends BaseCity
 {
-    /**
-     * @var string
-     */
-    protected $postalCode;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->locations = new ArrayCollection();
+    }
 
     /**
      * {@inheritdoc}
      */
-    public function setPostalCode($postalCode)
+    public function addLocation(LocationInterface $location)
     {
-        $this->postalCode = $postalCode;
+        if (!$this->hasLocation($location)) {
+            $location->setCity($this);
+            $this->locations->add($location);
+        }
 
         return $this;
     }
@@ -24,8 +36,43 @@ class City extends Location implements CityInterface
     /**
      * {@inheritdoc}
      */
-    public function getPostalCode()
+    public function removeLocation(LocationInterface $location)
     {
-        return $this->postalCode;
+        if ($this->hasLocation($location)) {
+            $location->setCity(null);
+            $this->locations->removeElement($location);
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function clearLocations()
+    {
+        foreach ($this->locations as $location) {
+            $location->setCity(null);
+        }
+
+        $this->locations = new ArrayCollection();
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLocations()
+    {
+        return $this->locations->toArray();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasLocation(LocationInterface $location)
+    {
+        return $this->locations->contains($location);
     }
 }

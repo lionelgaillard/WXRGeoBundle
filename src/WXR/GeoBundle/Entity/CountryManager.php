@@ -5,10 +5,15 @@ namespace WXR\GeoBundle\Entity;
 use WXR\CommonBundle\Entity\BaseManager;
 use WXR\GeoBundle\Model\CountryManagerInterface;
 
+/**
+ * WXR\GeoBundle\Entity\CountryManager
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
 class CountryManager extends BaseManager implements CountryManagerInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function findOneByIso($iso)
     {

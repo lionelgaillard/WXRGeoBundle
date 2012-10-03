@@ -19,9 +19,11 @@ wxr_geo:
             long: "[-Inf,Inf]L'abbréviation est trop longue"
         name:
             blank: Veuillez entrer un nom
-    location:
-        name:
-            blank: Veuillez entrer un nom
     city:
         postal_code:
             blank: Veuillez entrer un code postal
+        name:
+            blank: Veuillez entrer un nom
+    location:
+        street:
+            blank: Veuillez entrer une rue

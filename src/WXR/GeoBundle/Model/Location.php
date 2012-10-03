@@ -2,6 +2,11 @@
 
 namespace WXR\GeoBundle\Model;
 
+/**
+ * WXR\GeoBundle\Model\Location
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
 abstract class Location implements LocationInterface
 {
     /**
@@ -12,7 +17,7 @@ abstract class Location implements LocationInterface
     /**
      * @var string
      */
-    protected $name;
+    protected $street;
 
     /**
      * @var float
@@ -25,17 +30,12 @@ abstract class Location implements LocationInterface
     protected $longitude;
 
     /**
-     * @var RegionInterface
+     * @var CityInterface|null
      */
-    protected $region;
+    protected $city;
 
     /**
-     * @var CountryInterface
-     */
-    protected $country;
-
-    /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getId()
     {
@@ -43,25 +43,25 @@ abstract class Location implements LocationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function setName($name)
+    public function setStreet($street)
     {
-        $this->name = $name;
+        $this->street = $street;
 
         return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function getName()
+    public function getStreet()
     {
-        return $this->name;
+        return $this->street;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setLatitude($latitude)
     {
@@ -71,7 +71,7 @@ abstract class Location implements LocationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getLatitude()
     {
@@ -79,7 +79,7 @@ abstract class Location implements LocationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setLongitude($longitude)
     {
@@ -89,7 +89,7 @@ abstract class Location implements LocationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getLongitude()
     {
@@ -97,33 +97,41 @@ abstract class Location implements LocationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function setRegion(RegionInterface $region = null)
+    public function setCity(CountryInterface $city = null)
     {
-        $this->region = $region;
+        $this->city = $city;
 
         return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * {@inheritDoc}
      */
     public function getRegion()
     {
-        return $this->region;
+        return $this->getCity() ? $this->getCity()->getRegion() : null;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getCountry()
     {
-        return $this->region ? $this->region->getCountry() : null;
+        return $this->getRegion() ? $this->getRegion()->getCountry() : null;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __toString()
     {

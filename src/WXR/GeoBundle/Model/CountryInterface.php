@@ -2,6 +2,11 @@
 
 namespace WXR\GeoBundle\Model;
 
+/**
+ * WXR\GeoBundle\Model\CountryInterface
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
 interface CountryInterface
 {
     /**
@@ -32,6 +37,14 @@ interface CountryInterface
     public function getName();
 
     /**
+     * Set regions
+     *
+     * @param array|\Traversable $regions
+     * @return CountryInterface
+     */
+    public function setRegions($regions);
+
+    /**
      * @param RegionInterface $region
      * @return CountryInterface
      */
@@ -58,11 +71,6 @@ interface CountryInterface
      * @return boolean
      */
     public function hasRegion(RegionInterface $region);
-
-    /**
-     * @return LocationInterface[]
-     */
-    public function getLocations();
 
     /**
      * @return string

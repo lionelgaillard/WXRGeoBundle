@@ -21,6 +21,6 @@ WXR\GeoBundle\Entity\Region:
                 referencedColumnName: id
                 onDelete: SET NULL
     oneToMany:
-        locations:
-            targetEntity: Location
+        cities:
+            targetEntity: City
             mappedBy: region

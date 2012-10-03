@@ -2,6 +2,11 @@
 
 namespace WXR\GeoBundle\Model;
 
+/**
+ * WXR\GeoBundle\Model\RegionInterface
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
 interface RegionInterface
 {
     /**
@@ -54,32 +59,40 @@ interface RegionInterface
     public function getCountry();
 
     /**
-     * @param LocationInterface $location
+     * Set cities
+     *
+     * @param array|\Traversable
      * @return RegionInterface
      */
-    public function addLocation(LocationInterface $location);
+    public function setCities($cities);
 
     /**
-     * @param LocationInterface $location
+     * @param CityInterface $city
      * @return RegionInterface
      */
-    public function removeLocation(LocationInterface $location);
+    public function addCity(CityInterface $city);
+
+    /**
+     * @param CityInterface $city
+     * @return RegionInterface
+     */
+    public function removeCity(CityInterface $city);
 
     /**
      * @return RegionInterface
      */
-    public function clearLocations();
+    public function clearCities();
 
     /**
-     * @return LocationInterface[]
+     * @return CityInterface[]
      */
-    public function getLocations();
+    public function getCities();
 
     /**
-     * @param LocationInterface $location
+     * @param CityInterface $city
      * @return boolean
      */
-    public function hasLocation(LocationInterface $location);
+    public function hasCity(CityInterface $city);
 
     /**
      * @return string

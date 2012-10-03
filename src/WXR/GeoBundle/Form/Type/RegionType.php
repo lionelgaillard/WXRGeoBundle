@@ -31,7 +31,7 @@ class RegionType extends AbstractType
             ))
             ->add('country', null, array(
                 'required' => false,
-                'label' => 'wxr_geo.region.country'
+                'label' => 'wxr_geo.country.country'
             ))
         ;
     }
@@ -44,8 +44,7 @@ class RegionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => $this->class,
-            'intention'  => 'profile',
+            'data_class' => $this->class
         ));
     }
 

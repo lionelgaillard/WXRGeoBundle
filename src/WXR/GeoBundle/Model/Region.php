@@ -2,6 +2,11 @@
 
 namespace WXR\GeoBundle\Model;
 
+/**
+ * WXR\GeoBundle\Model\Region
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
 abstract class Region implements RegionInterface
 {
     /**
@@ -30,13 +35,14 @@ abstract class Region implements RegionInterface
     protected $country;
 
     /**
-     * @var array
+     * @var CityInterface[]
      */
-    protected $locations;
+    protected $cities;
+
 
     protected function __construct()
     {
-        $this->locations = array();
+        $this->cities = array();
     }
 
     /**
@@ -122,10 +128,12 @@ abstract class Region implements RegionInterface
     /**
      * {@inheritdoc}
      */
-    public function addLocation(LocationInterface $location)
+    public function setCities($cities)
     {
-        if (!$this->hasLocation($location)) {
-            $this->locations[] = $location;
+        $this->clearCities();
+
+        foreach ($cities as $city) {
+            $this->addCity($city);
         }
 
         return $this;
@@ -134,11 +142,11 @@ abstract class Region implements RegionInterface
     /**
      * {@inheritdoc}
      */
-    public function removeLocation(LocationInterface $location)
+    public function addCity(CityInterface $city)
     {
-        if ($this->hasLocation($location)) {
-            $key = array_search($location, $this->locations, true);
-            unset($this->locations[$key]);
+        if (!$this->hasCity($city)) {
+            $city->setRegion($this);
+            $this->cities[] = $city;
         }
 
         return $this;
@@ -147,9 +155,13 @@ abstract class Region implements RegionInterface
     /**
      * {@inheritdoc}
      */
-    public function clearLocations()
+    public function removeCity(CityInterface $city)
     {
-        $this->locations = array();
+        if ($this->hasCity($city)) {
+            $key = array_search($city, $this->cities, true);
+            $city->setRegion(null);
+            unset($this->cities[$key]);
+        }
 
         return $this;
     }
@@ -157,17 +169,31 @@ abstract class Region implements RegionInterface
     /**
      * {@inheritdoc}
      */
-    public function getLocations()
+    public function clearCities()
     {
-        return $this->locations;
+        foreach ($this->cities as $city) {
+            $city->setRegion(null);
+        }
+
+        $this->cities = array();
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function hasLocation(LocationInterface $location)
+    public function getCities()
     {
-        return array_search($location, $this->locations, true) !== false;
+        return $this->cities;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasCity(CityInterface $city)
+    {
+        return array_search($city, $this->cities, true) !== false;
     }
 
     /**

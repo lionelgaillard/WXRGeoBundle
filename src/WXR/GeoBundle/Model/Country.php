@@ -2,6 +2,11 @@
 
 namespace WXR\GeoBundle\Model;
 
+/**
+ * WXR\GeoBundle\Model\Country
+ *
+ * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
+ */
 abstract class Country implements CountryInterface
 {
     /**
@@ -20,9 +25,10 @@ abstract class Country implements CountryInterface
     protected $name;
 
     /**
-     * @var array
+     * @var RegionInterface[]
      */
     protected $regions;
+
 
     public function __construct()
     {
@@ -30,7 +36,7 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getId()
     {
@@ -38,7 +44,7 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setIso($iso)
     {
@@ -48,7 +54,7 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getIso()
     {
@@ -56,7 +62,7 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setName($name)
     {
@@ -66,7 +72,7 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getName()
     {
@@ -74,11 +80,26 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     */
+    public function setRegions($regions)
+    {
+        $this->clearRegions();
+
+        foreach ($regions as $region) {
+            $this->addRegion($region);
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritDoc}
      */
     public function addRegion(RegionInterface $region)
     {
         if (!$this->hasRegion($region)) {
+            $region->setCountry($this);
             $this->regions[] = $region;
         }
 
@@ -86,12 +107,13 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function removeRegion(RegionInterface $region)
     {
         if ($this->hasRegion($region)) {
             $key = array_search($region, $this->regions, true);
+            $region->setCountry(null);
             unset($this->regions[$key]);
         }
 
@@ -99,17 +121,21 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function clearRegions()
     {
+        foreach ($this->regions as $region) {
+            $region->setCountry(null);
+        }
+
         $this->regions = array();
 
         return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getRegions()
     {
@@ -117,7 +143,7 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function hasRegion(RegionInterface $region)
     {
@@ -125,20 +151,7 @@ abstract class Country implements CountryInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getLocations()
-    {
-        $locations = array();
-        foreach ($this->regions as $region) {
-            $locations = array_merge($locations, $region->getLocations());
-        }
-
-        return $locations;
-    }
-
-    /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __toString()
     {

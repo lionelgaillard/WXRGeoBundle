@@ -5,7 +5,7 @@ namespace WXR\GeoBundle\Controller;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class CityController extends Controller
+class CityAdminController extends Controller
 {
     public function listAction()
     {
@@ -15,7 +15,7 @@ class CityController extends Controller
 
         $cities = $this->getCityManager()->findAll();
 
-        return $this->render('WXRGeoBundle:City:list.html.twig', compact('cities'));
+        return $this->render('WXRGeoBundle:CityAdmin:list.html.twig', compact('cities'));
     }
 
     public function addAction()
@@ -35,7 +35,7 @@ class CityController extends Controller
             return $this->redirect($this->generateUrl('wxr_geo_city_list'));
         }
 
-        return $this->render('WXRGeoBundle:City:add.html.twig', array(
+        return $this->render('WXRGeoBundle:CityAdmin:add.html.twig', array(
             'city' => $city,
             'form' => $form->createView()
         ));
@@ -62,7 +62,7 @@ class CityController extends Controller
             return $this->redirect($this->generateUrl('wxr_geo_city_list'));
         }
 
-        return $this->render('WXRGeoBundle:City:edit.html.twig', array(
+        return $this->render('WXRGeoBundle:CityAdmin:edit.html.twig', array(
             'city' => $city,
             'form' => $form->createView()
         ));

@@ -1,4 +1,4 @@
-{% extends 'WXRGeoBundle::layout.html.twig' %}
+{% extends 'WXRCommonBundle::admin_layout.html.twig' %}
 
 {% block content %}
 
@@ -8,14 +8,12 @@
   </div>
 </div>
 
-<form action="{{ path('wxr_geo_city_edit', { id: city.getId() }) }}" {{ form_enctype(form) }} method="POST">
+<form action="{{ path('wxr_geo_city_add') }}" {{ form_enctype(form) }} method="POST">
 
   {{ form_widget(form) }}
 
   <div class="form-actions">
     <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> {{ 'wxr_geo.city.save'|trans }}</button>
-    <button class="btn" type="reset"><i class="icon-refresh"></i> {{ 'wxr_geo.city.reset'|trans }}</button>
-    <a href="{{ path('wxr_geo_city_delete', { id: city.getId() }) }}" class="btn btn-danger"><i class="icon-trash icon-white"></i> {{ 'wxr_geo.city.delete'|trans }}</a>
   </div>
 
 </form>

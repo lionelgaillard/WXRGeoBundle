@@ -10,6 +10,7 @@ wxr_geo:
         save: Enregistrer le pays
         reset: Réinitialiser
         delete: Supprimer le pays
+        delete_confirm: Voulez-vous vraiment supprimer ce pays ?
         added: Le pays a été ajouté
         updated: Le pays a été modifié
         deleted: Le pays a été supprimé
@@ -27,6 +28,7 @@ wxr_geo:
         save: Enregistrer la région
         reset: Réinitialiser
         delete: Supprimer la région
+        delete_confirm: Voulez-vous vraiment supprimer cette région ?
         added: La région a été ajoutée
         updated: La région a été modifiée
         deleted: La région a été supprimée
@@ -42,6 +44,7 @@ wxr_geo:
         save: Enregistrer la ville
         reset: Réinitialiser
         delete: Supprimer la ville
+        delete_confirm: Voulez-vous vraiment supprimer cette ville ?
         added: La ville a été ajoutée
         updated: La ville a été modifiée
         deleted: La ville a été supprimée
@@ -58,6 +61,7 @@ wxr_geo:
         save: Enregistrer le lieu
         reset: Réinitialiser
         delete: Supprimer le lieu
+        delete_confirm: Voulez-vous vraiment supprimer ce lieu ?
         added: Le lieu a été ajouté
         updated: Le lieu a été modifié
         deleted: Le lieu a été supprimé

@@ -10,6 +10,7 @@ wxr_geo:
         save: Save country
         reset: Reset
         delete: Delete country
+        delete_confirm: Do you really want delete this country ?
         added: Country added
         updated: Country updated
         deleted: Country deleted
@@ -28,6 +29,7 @@ wxr_geo:
         save: Save region
         reset: Reset
         delete: Delete region
+        delete_confirm: Do you really want delete this region ?
         added: Region added
         updated: Region updated
         deleted: Region deleted
@@ -43,6 +45,7 @@ wxr_geo:
         save: Save city
         reset: Reset
         delete: Delete city
+        delete_confirm: Do you really want delete this city ?
         added: City added
         updated: City updated
         deleted: City deleted
@@ -59,6 +62,7 @@ wxr_geo:
         save: Save location
         reset: Reset
         delete: Delete location
+        delete_confirm: Do you really want delete this location ?
         added: Location added
         updated: Location updated
         deleted: Location deleted

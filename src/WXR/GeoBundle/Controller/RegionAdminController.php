@@ -5,11 +5,11 @@ namespace WXR\GeoBundle\Controller;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class RegionController extends Controller
+class RegionAdminController extends Controller
 {
     public function listAction()
     {
-        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('ROLE_WXR_GEO_REGION_ADMIN')) {
             throw new AccessDeniedHttpException();
         }
 

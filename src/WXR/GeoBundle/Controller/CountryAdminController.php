@@ -5,7 +5,7 @@ namespace WXR\GeoBundle\Controller;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class CountryController extends Controller
+class CountryAdminController extends Controller
 {
     public function listAction()
     {
@@ -15,7 +15,7 @@ class CountryController extends Controller
 
         $countries = $this->getCountryManager()->findAll();
 
-        return $this->render('WXRGeoBundle:Country:list.html.twig', compact('countries'));
+        return $this->render('WXRGeoBundle:Admin/Country:list.html.twig', compact('countries'));
     }
 
     public function addAction()
@@ -35,7 +35,7 @@ class CountryController extends Controller
             return $this->redirect($this->generateUrl('wxr_geo_country_list'));
         }
 
-        return $this->render('WXRGeoBundle:Country:add.html.twig', array(
+        return $this->render('WXRGeoBundle:Admin/Country:add.html.twig', array(
             'country' => $country,
             'form' => $form->createView()
         ));
@@ -62,7 +62,7 @@ class CountryController extends Controller
             return $this->redirect($this->generateUrl('wxr_geo_country_list'));
         }
 
-        return $this->render('WXRGeoBundle:Country:edit.html.twig', array(
+        return $this->render('WXRGeoBundle:Admin/Country:edit.html.twig', array(
             'country' => $country,
             'form' => $form->createView()
         ));

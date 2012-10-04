@@ -1,9 +1,9 @@
-{% extends "WXRGeoBundle::layout.html.twig" %}
+{% extends "::admin_layout.html.twig" %}
 
 {% block content %}
 <div class="btn-toolbar">
   <div class="btn-group">
-    <a class="btn btn-primary" href="{{ path('wxr_geo_country_add') }}"><i class="icon-plus icon-white"></i> {{ 'wxr_geo.country.add'|trans }}</a>
+    <a class="btn btn-primary" href="{{ path('wxr_geo_country_admin_add') }}"><i class="icon-plus icon-white"></i> {{ 'wxr_geo.country.add'|trans }}</a>
   </div>
 </div>
 
@@ -23,8 +23,8 @@
       <td>{{ country.getName() }}</td>
       <td>
         <div class="btn-group">
-          <a class="btn" href="{{ path('wxr_geo_country_edit', { id: country.getId() }) }}"><i class="icon-pencil"></i></a>
-          <a class="btn btn-danger" href="{{ path('wxr_geo_country_delete', { id: country.getId() }) }}"><i class="icon-trash icon-white"></i></a>
+          <a class="btn" href="{{ path('wxr_geo_country_admin_edit', { id: country.getId() }) }}"><i class="icon-pencil"></i></a>
+          <a class="btn btn-danger" href="{{ path('wxr_geo_country_admin_delete', { id: country.getId() }) }}"><i class="icon-trash icon-white"></i></a>
         </div>
       </td>
     </tr>

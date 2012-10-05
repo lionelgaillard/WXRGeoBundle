@@ -1,0 +1,15 @@
+wxr_geo_location_admin_list:
+    pattern: /list
+    defaults: { _controller: WXRGeoBundle:LocationAdmin:list }
+
+wxr_geo_location_admin_add:
+    pattern: /add
+    defaults: { _controller:WXRGeoBundle:LocationAdmin:add }
+
+wxr_geo_location_admin_edit:
+    pattern: /edit/{id}
+    defaults: { _controller:WXRGeoBundle:LocationAdmin:edit }
+
+wxr_geo_location_admin_delete:
+    pattern: /delete/{id}
+    defaults: { _controller:WXRGeoBundle:LocationAdmin:delete }

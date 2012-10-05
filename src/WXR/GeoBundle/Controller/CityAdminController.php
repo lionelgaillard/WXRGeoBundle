@@ -1,6 +1,6 @@
 <?php
 
-namespace WXR\GeoBundle\Controller;
+namespace WXR\GeoBundle\Controller\Admin;
 
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -9,7 +9,7 @@ class CityAdminController extends Controller
 {
     public function listAction()
     {
-        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('WXR_GEO_CITY_ADMIN_LIST')) {
             throw new AccessDeniedHttpException();
         }
 
@@ -20,7 +20,7 @@ class CityAdminController extends Controller
 
     public function addAction()
     {
-        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('WXR_GEO_CITY_ADMIN_ADD')) {
             throw new AccessDeniedHttpException();
         }
 
@@ -32,7 +32,7 @@ class CityAdminController extends Controller
         if ($handler->process($city)) {
             $this->get('session')->setFlash('success', 'wxr_geo.city.added');
 
-            return $this->redirect($this->generateUrl('wxr_geo_city_list'));
+            return $this->redirect($this->generateUrl('wxr_geo_city_admin_list'));
         }
 
         return $this->render('WXRGeoBundle:CityAdmin:add.html.twig', array(
@@ -43,7 +43,7 @@ class CityAdminController extends Controller
 
     public function editAction($id)
     {
-        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('WXR_GEO_CITY_ADMIN_EDIT')) {
             throw new AccessDeniedHttpException();
         }
 
@@ -59,7 +59,7 @@ class CityAdminController extends Controller
         if ($handler->process($city)) {
             $this->get('session')->setFlash('success', 'wxr_geo.city.updated');
 
-            return $this->redirect($this->generateUrl('wxr_geo_city_list'));
+            return $this->redirect($this->generateUrl('wxr_geo_city_admin_list'));
         }
 
         return $this->render('WXRGeoBundle:CityAdmin:edit.html.twig', array(
@@ -70,7 +70,7 @@ class CityAdminController extends Controller
 
     public function deleteAction($id)
     {
-        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('WXR_GEO_CITY_ADMIN_DELETE')) {
             throw new AccessDeniedHttpException();
         }
 
@@ -80,10 +80,15 @@ class CityAdminController extends Controller
             throw $this->createNotFoundException('wxr_geo.city.not_found');
         }
 
-        $this->getCityManager()->remove($city);
-        $this->get('session')->setFlash('success', 'wxr_geo.city.deleted');
+        if ($this->getRequest()->query->get('confirm')) {
 
-        return $this->redirect($this->generateUrl('wxr_geo_city_list'));
+            $this->getCityManager()->remove($city);
+            $this->get('session')->setFlash('success', 'wxr_geo.city.deleted');
+
+            return $this->redirect($this->generateUrl('wxr_geo_city_admin_list'));
+        }
+
+        return $this->render('WXRGeoBundle:CityAdmin:delete.html.twig', compact('country'));
     }
 
     /**

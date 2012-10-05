@@ -1,0 +1,39 @@
+{% extends "WXRGeoBundle::admin_layout.html.twig" %}
+
+{% block content %}
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <a class="btn btn-primary" href="{{ path('wxr_geo_location_add') }}"><i class="icon-plus icon-white"></i> {{ 'wxr_geo.location.add'|trans }}</a>
+  </div>
+</div>
+
+{% if locations %}
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>{{ 'wxr_geo.location.street'|trans }}</th>
+      <th>{{ 'wxr_geo.city.city'|trans }}</th>
+      <th>{{ 'wxr_geo.location.latitude'|trans }}, {{ 'wxr_geo.location.longitude'|trans }}</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for location in locations %}
+    <tr>
+      <td>{{ location.getStreet() }}</td>
+      <td>{{ location.getCity() }}</td>
+      <td>{{ location.getLatitude() }}, {{ location.getLongitude() }}</td>
+      <td>
+        <div class="btn-group">
+          <a class="btn" href="{{ path('wxr_geo_location_edit', { id: location.getId() }) }}"><i class="icon-pencil"></i></a>
+          <a class="btn btn-danger" href="{{ path('wxr_geo_location_delete', { id: location.getId() }) }}"><i class="icon-trash icon-white"></i></a>
+        </div>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>{{ 'wxr_geo.location.none'|trans }}</p>
+{% endif %}
+{% endblock %}

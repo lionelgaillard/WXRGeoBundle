@@ -1,6 +1,6 @@
 <?php
 
-namespace WXR\GeoBundle\Controller;
+namespace WXR\GeoBundle\Controller\Admin;
 
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -9,7 +9,7 @@ class RegionAdminController extends Controller
 {
     public function listAction()
     {
-        if (!$this->get('security.context')->isGranted('ROLE_WXR_GEO_REGION_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('ROLE_WXR_GEO_REGION_ADMIN_LIST')) {
             throw new AccessDeniedHttpException();
         }
 
@@ -20,7 +20,7 @@ class RegionAdminController extends Controller
 
     public function addAction()
     {
-        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('ROLE_WXR_GEO_REGION_ADMIN_ADD')) {
             throw new AccessDeniedHttpException();
         }
 
@@ -32,7 +32,7 @@ class RegionAdminController extends Controller
         if ($handler->process($region)) {
             $this->get('session')->setFlash('success', 'wxr_geo.region.added');
 
-            return $this->redirect($this->generateUrl('wxr_geo_region_list'));
+            return $this->redirect($this->generateUrl('wxr_geo_region_admin_list'));
         }
 
         return $this->render('WXRGeoBundle:Region:add.html.twig', array(
@@ -43,7 +43,7 @@ class RegionAdminController extends Controller
 
     public function editAction($id)
     {
-        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('ROLE_WXR_GEO_REGION_ADMIN_EDIT')) {
             throw new AccessDeniedHttpException();
         }
 
@@ -59,7 +59,7 @@ class RegionAdminController extends Controller
         if ($handler->process($region)) {
             $this->get('session')->setFlash('success', 'wxr_geo.region.updated');
 
-            return $this->redirect($this->generateUrl('wxr_geo_region_list'));
+            return $this->redirect($this->generateUrl('wxr_geo_region_admin_list'));
         }
 
         return $this->render('WXRGeoBundle:Region:edit.html.twig', array(
@@ -70,7 +70,7 @@ class RegionAdminController extends Controller
 
     public function deleteAction($id)
     {
-        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('ROLE_WXR_GEO_REGION_ADMIN_DELETE')) {
             throw new AccessDeniedHttpException();
         }
 
@@ -80,10 +80,15 @@ class RegionAdminController extends Controller
             throw $this->createNotFoundException('wxr_geo.region.not_found');
         }
 
-        $this->getRegionManager()->remove($region);
-        $this->get('session')->setFlash('success', 'wxr_geo.region.deleted');
+        if ($this->getRequest()->query->get('confirm')) {
 
-        return $this->redirect($this->generateUrl('wxr_geo_region_list'));
+            $this->getRegionManager()->remove($region);
+            $this->get('session')->setFlash('success', 'wxr_geo.region.deleted');
+
+            return $this->redirect($this->generateUrl('wxr_geo_region_admin_list'));
+        }
+
+        return $this->render('WXRGeoBundle:RegionAdmin:delete.html.twig', compact('country'));
     }
 
     /**

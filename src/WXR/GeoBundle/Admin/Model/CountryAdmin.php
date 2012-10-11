@@ -19,10 +19,6 @@ class CountryAdmin extends Admin
             ->add('name', null, array(
                 'label' => 'wxr_geo.country.name'
             ))
-            ->add('regions', null, array(
-                'required' => false,
-                'label' => 'wxr_geo.region.regions'
-            ))
         ;
     }
 

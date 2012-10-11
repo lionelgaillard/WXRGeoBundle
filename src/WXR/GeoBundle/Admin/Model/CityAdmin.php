@@ -22,10 +22,6 @@ class CityAdmin extends Admin
             ->add('name', null, array(
                 'label' => 'wxr_geo.region.name'
             ))
-            ->add('locations', null, array(
-                'required' => false,
-                'label' => 'wxr_geo.location.locations'
-            ))
         ;
     }
 

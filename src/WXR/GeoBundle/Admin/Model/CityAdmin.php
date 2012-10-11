@@ -30,7 +30,7 @@ class CityAdmin extends Admin
         $datagridMapper
             ->add('postalCode')
             ->add('name')
-            ->add('country')
+            ->add('region')
         ;
     }
 
@@ -39,7 +39,7 @@ class CityAdmin extends Admin
         $listMapper
             ->add('postalCode')
             ->add('name')
-            ->add('country')
+            ->add('region')
         ;
     }
 

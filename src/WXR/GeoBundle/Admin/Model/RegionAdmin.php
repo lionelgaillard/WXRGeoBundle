@@ -20,6 +20,9 @@ class RegionAdmin extends Admin
             ->add('iso', null, array(
                 'label' => 'wxr_geo.region.iso'
             ))
+            ->add('abbreviation', null, array(
+                'label' => 'wxr_geo.region.abbreviation'
+            ))
             ->add('name', null, array(
                 'label' => 'wxr_geo.region.name'
             ))

@@ -51,8 +51,8 @@ class RegionAdmin extends Admin
     {
         $errorElement
             ->with('iso')
-                ->assertMinLength(array('limit' => 4))
-                ->assertMaxLength(array('limit' => 4))
+                ->assertMinLength(array('limit' => 5))
+                ->assertMaxLength(array('limit' => 5))
             ->end()
         ;
     }

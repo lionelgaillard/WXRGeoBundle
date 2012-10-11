@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->booleanNode('admin')->addDefaultsIfNotSet()->defaultValue(true)
+                ->booleanNode('admin')->defaultValue(true)->end()
             ->end()
         ;
 

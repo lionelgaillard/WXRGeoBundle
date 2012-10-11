@@ -9,6 +9,7 @@ WXR\GeoBundle\Entity\Location:
         street:
             type: string
             length: 255
+            nullable: true
         latitude:
             type: decimal
             precision: 8

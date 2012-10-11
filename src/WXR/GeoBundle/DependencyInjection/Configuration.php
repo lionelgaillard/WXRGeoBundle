@@ -20,6 +20,12 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('wxr_geo');
 
+        $rootNode
+            ->children()
+                ->booleanNode('admin')->addDefaultsIfNotSet()->defaultValue(true)
+            ->end()
+        ;
+
         $this->addCountrySection($rootNode);
         $this->addRegionSection($rootNode);
         $this->addCitySection($rootNode);

@@ -24,6 +24,10 @@ class WXRGeoExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
+        if ($config['admin']) {
+            $loader->load('admin.yml');
+        }
+
         $this->loadCountry($config['country'], $container, $loader);
         $this->loadRegion($config['region'], $container, $loader);
         $this->loadCity($config['city'], $container, $loader);

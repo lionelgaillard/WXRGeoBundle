@@ -17,10 +17,14 @@ class CityAdmin extends Admin
                 'label' => 'wxr_geo.region.region'
             ))
             ->add('postalCode', null, array(
-                'label' => 'wxr_geo.city.postalCode'
+                'label' => 'wxr_geo.city.postal_code'
             ))
             ->add('name', null, array(
                 'label' => 'wxr_geo.region.name'
+            ))
+            ->add('locations', null, array(
+                'required' => false,
+                'label' => 'wxr_geo.location.locations'
             ))
         ;
     }

@@ -44,7 +44,6 @@ class CountryAdmin extends Admin
             ->with('iso')
                 ->assertMinLength(array('limit' => 2))
                 ->assertMaxLength(array('limit' => 2))
-                ->assertUniqueEntity(array('fields' => 'iso'))
             ->end()
         ;
     }

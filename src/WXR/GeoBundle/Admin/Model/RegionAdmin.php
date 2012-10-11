@@ -50,7 +50,6 @@ class RegionAdmin extends Admin
             ->with('iso')
                 ->assertMinLength(array('limit' => 4))
                 ->assertMaxLength(array('limit' => 4))
-                ->assertUniqueEntity(array('fields' => array('iso')))
             ->end()
         ;
     }

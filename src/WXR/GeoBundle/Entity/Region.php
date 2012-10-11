@@ -65,7 +65,7 @@ class Region extends BaseRegion
      */
     public function getCities()
     {
-        return $this->cities->toArray();
+        return $this->cities;
     }
 
     /**

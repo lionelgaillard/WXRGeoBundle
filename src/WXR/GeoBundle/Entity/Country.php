@@ -66,7 +66,7 @@ class Country extends BaseCountry
      */
     public function getRegions()
     {
-        return $this->regions->toArray();
+        return $this->regions;
     }
 
     /**

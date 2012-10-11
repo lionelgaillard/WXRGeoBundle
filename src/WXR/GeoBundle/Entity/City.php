@@ -65,7 +65,7 @@ class City extends BaseCity
      */
     public function getLocations()
     {
-        return $this->locations->toArray();
+        return $this->locations;
     }
 
     /**

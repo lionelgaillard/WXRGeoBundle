@@ -1,0 +1,24 @@
+services:
+    wxr_geo.admin.country:
+        class: WXR\GeoBundle\Admin\Entity\CountryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Geo, label: Country }
+        arguments: [ ~, WXR\GeoBundle\Entity\Country, SonataAdminBundle:CRUD ]
+
+    wxr_geo.admin.region:
+        class: WXR\GeoBundle\Admin\Entity\RegionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Geo, label: Region }
+        arguments: [ ~, WXR\GeoBundle\Entity\Region, SonataAdminBundle:CRUD ]
+
+    wxr_geo.admin.city:
+        class: WXR\GeoBundle\Admin\Entity\CityAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Geo, label: City }
+        arguments: [ ~, WXR\GeoBundle\Entity\City, SonataAdminBundle:CRUD ]
+
+    wxr_geo.admin.location:
+        class: WXR\GeoBundle\Admin\Entity\LocationAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Geo, label: Location }
+        arguments: [ ~, WXR\GeoBundle\Entity\Location, SonataAdminBundle:CRUD ]

@@ -99,7 +99,7 @@ abstract class Location implements LocationInterface
     /**
      * {@inheritDoc}
      */
-    public function setCity(CountryInterface $city = null)
+    public function setCity(CityInterface $city = null)
     {
         $this->city = $city;
 

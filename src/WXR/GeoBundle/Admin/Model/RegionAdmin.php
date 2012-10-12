@@ -13,10 +13,6 @@ class RegionAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('country', null, array(
-                'required' => false,
-                'label' => 'wxr_geo.country.country'
-            ))
             ->add('iso', null, array(
                 'label' => 'wxr_geo.region.iso'
             ))
@@ -25,6 +21,10 @@ class RegionAdmin extends Admin
             ))
             ->add('name', null, array(
                 'label' => 'wxr_geo.region.name'
+            ))
+            ->add('country', null, array(
+                'required' => false,
+                'label' => 'wxr_geo.country.country'
             ))
         ;
     }

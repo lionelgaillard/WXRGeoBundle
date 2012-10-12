@@ -64,15 +64,15 @@ interface LocationInterface
     /**
      * Set city
      *
-     * @param CountryInterface|null $city
+     * @param CityInterface|null $city
      * @return LocationInterface
      */
-    public function setCity(CountryInterface $city = null);
+    public function setCity(CityInterface $city = null);
 
     /**
      * Get city
      *
-     * @return CountryInterface|null
+     * @return CityInterface|null
      */
     public function getCity();
 
@@ -86,7 +86,7 @@ interface LocationInterface
     /**
      * Get country
      *
-     * @return CountryInterface|null
+     * @return CityInterface|null
      */
     public function getCountry();
 

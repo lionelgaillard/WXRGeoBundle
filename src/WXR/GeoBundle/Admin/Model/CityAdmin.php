@@ -12,15 +12,15 @@ class CityAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('region', null, array(
-                'required' => false,
-                'label' => 'wxr_geo.region.region'
-            ))
             ->add('postalCode', null, array(
                 'label' => 'wxr_geo.city.postal_code'
             ))
             ->add('name', null, array(
                 'label' => 'wxr_geo.region.name'
+            ))
+            ->add('region', null, array(
+                'required' => false,
+                'label' => 'wxr_geo.region.region'
             ))
         ;
     }

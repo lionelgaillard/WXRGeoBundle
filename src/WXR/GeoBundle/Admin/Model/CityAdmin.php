@@ -37,8 +37,8 @@ class CityAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('postalCode')
-            ->add('name')
+            ->addIdentifier('postalCode')
+            ->addIdentifier('name')
             ->add('region')
         ;
     }

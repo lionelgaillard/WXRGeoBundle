@@ -41,7 +41,7 @@ class LocationAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('street')
+            ->addIdentifier('street')
             ->add('city')
         ;
     }

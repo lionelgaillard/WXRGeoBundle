@@ -42,7 +42,7 @@ class RegionAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('iso')
-            ->add('name')
+            ->addIdentifier('name')
             ->add('country')
         ;
     }

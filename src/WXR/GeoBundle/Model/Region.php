@@ -201,6 +201,6 @@ abstract class Region implements RegionInterface
      */
     public function __toString()
     {
-        return $this->name;
+        return $this->getName() . ($this->getCountry() ? ', ' . $this->getCountry() : '');
     }
 }

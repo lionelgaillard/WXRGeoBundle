@@ -186,6 +186,8 @@ abstract class City implements CityInterface
      */
     public function __toString()
     {
-        return $this->name;
+        return ($this->getPostalCode() ? $this->getPostalCode() . ' ' : '')
+             . $this->getName()
+             . ($this->getRegion() ? ', ' . $this->getRegion() : '');
     }
 }

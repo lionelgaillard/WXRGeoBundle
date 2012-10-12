@@ -155,6 +155,6 @@ abstract class Country implements CountryInterface
      */
     public function __toString()
     {
-        return $this->name;
+        return $this->getName();
     }
 }

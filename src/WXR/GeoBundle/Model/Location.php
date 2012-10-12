@@ -135,6 +135,7 @@ abstract class Location implements LocationInterface
      */
     public function __toString()
     {
-        return $this->street ? $this->street : '';
+        return ($this->getStreet() ? $this->getStreet() . ' ' : '')
+             . ($this->getCity() ? $this->getCity() : '');
     }
 }

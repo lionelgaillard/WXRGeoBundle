@@ -62,11 +62,46 @@ interface CityInterface
     public function getRegion();
 
     /**
+     * Get region ISO
+     *
+     * @return string
+     */
+    public function getRegionIso();
+
+    /**
+     * Get region abbreviation
+     *
+     * @return string
+     */
+    public function getRegionAbbreviation();
+
+    /**
+     * Get region name
+     *
+     * @return string
+     */
+    public function getRegionName();
+
+    /**
      * Get country
      *
      * @return CountryInterface|null
      */
     public function getCountry();
+
+    /**
+     * Get country ISO
+     *
+     * @return string
+     */
+    public function getCountryIso();
+
+    /**
+     * Get country name
+     *
+     * @return string
+     */
+    public function getCountryName();
 
     /**
      * Set locations

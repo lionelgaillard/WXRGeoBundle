@@ -128,6 +128,24 @@ abstract class Region implements RegionInterface
     /**
      * {@inheritdoc}
      */
+    public function getCountryIso()
+    {
+        return $this->getCountry() ?
+            $this->getCountry()->getIso() : '';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCountryName()
+    {
+        return $this->getCountry() ?
+            $this->getCountry()->getName() : '';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setCities($cities)
     {
         $this->clearCities();
@@ -193,7 +211,7 @@ abstract class Region implements RegionInterface
      */
     public function hasCity(CityInterface $city)
     {
-        return array_search($city, $this->cities, true) !== false;
+        return false !== array_search($city, $this->cities, true);
     }
 
     /**

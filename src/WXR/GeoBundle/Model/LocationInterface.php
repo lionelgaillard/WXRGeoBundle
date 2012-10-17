@@ -77,6 +77,20 @@ interface LocationInterface
     public function getCity();
 
     /**
+     * Get city postal code
+     *
+     * @return string
+     */
+    public function getCityPostalCode();
+
+    /**
+     * Get city name
+     *
+     * @return string
+     */
+    public function getCityName();
+
+    /**
      * Get region
      *
      * @return RegionInterface|null
@@ -84,11 +98,46 @@ interface LocationInterface
     public function getRegion();
 
     /**
+     * Get region ISO
+     *
+     * @return string
+     */
+    public function getRegionIso();
+
+    /**
+     * Get region abbreviation
+     *
+     * @return string
+     */
+    public function getRegionAbbreviation();
+
+    /**
+     * Get region name
+     *
+     * @return string
+     */
+    public function getRegionName();
+
+    /**
      * Get country
      *
      * @return CityInterface|null
      */
     public function getCountry();
+
+    /**
+     * Get country ISO
+     *
+     * @return string
+     */
+    public function getCountryIso();
+
+    /**
+     * Get country name
+     *
+     * @return string
+     */
+    public function getCountryName();
 
     /**
      * @return string

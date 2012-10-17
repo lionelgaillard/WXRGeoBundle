@@ -105,9 +105,55 @@ abstract class City implements CityInterface
     /**
      * {@inheritDoc}
      */
+    public function getRegionIso()
+    {
+        return $this->getRegion() ?
+            $this->getRegion()->getIso() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRegionAbbreviation()
+    {
+        return $this->getRegion() ?
+            $this->getRegion()->getAbbreviation() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRegionName()
+    {
+        return $this->getRegion() ?
+            $this->getRegion()->getName() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getCountry()
     {
-        return $this->getRegion() ? $this->getRegion()->getCountry() : null;
+        return $this->getRegion() ?
+            $this->getRegion()->getCountry() : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCountryIso()
+    {
+        return $this->getRegion() ?
+            $this->getRegion()->getCountryIso() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCountryName()
+    {
+        return $this->getRegion() ?
+            $this->getRegion()->getCountryName() : '';
     }
 
     /**

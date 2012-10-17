@@ -117,9 +117,55 @@ abstract class Location implements LocationInterface
     /**
      * {@inheritDoc}
      */
+    public function getCityPostalCode()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getPostalCode() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCityName()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getName() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getRegion()
     {
-        return $this->getCity() ? $this->getCity()->getRegion() : null;
+        return $this->getCity() ?
+            $this->getCity()->getRegion() : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRegionIso()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getRegionIso() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRegionAbbreviation()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getRegionAbbreviation() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRegionName()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getRegionName() : '';
     }
 
     /**
@@ -127,7 +173,26 @@ abstract class Location implements LocationInterface
      */
     public function getCountry()
     {
-        return $this->getRegion() ? $this->getRegion()->getCountry() : null;
+        return $this->getRegion() ?
+            $this->getRegion()->getCountry() : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCountryIso()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getCountryIso() : '';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCountryName()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getCountryName() : '';
     }
 
     /**

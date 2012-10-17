@@ -59,6 +59,20 @@ interface RegionInterface
     public function getCountry();
 
     /**
+     * Get country ISO
+     *
+     * @return string
+     */
+    public function getCountryIso();
+
+    /**
+     * Get country name
+     *
+     * @return string
+     */
+    public function getCountryName();
+
+    /**
      * Set cities
      *
      * @param array|\Traversable

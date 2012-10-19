@@ -1,0 +1,9 @@
+regions: Cantons
+
+breadcrumb:
+
+    # Region
+    link_region_list: Liste des cantons
+    link_region_create: Créer un canton
+    link_region_edit: Editer un canton
+    link_region_delete: Supprimer un canton

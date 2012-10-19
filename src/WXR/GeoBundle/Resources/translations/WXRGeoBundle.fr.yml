@@ -1,0 +1,77 @@
+wxr_geo: Géographie
+countries: Pays
+regions: Régions
+cities: Villes
+locations: Lieux
+
+breadcrumb:
+
+    # Country
+    link_country_list: Liste des pays
+    link_country_create: Créer un pays
+    link_country_edit: Editer un pays
+    link_country_delete: Supprimer un pays
+
+    # Region
+    link_region_list: Liste des régions
+    link_region_create: Créer une région
+    link_region_edit: Editer une région
+    link_region_delete: Supprimer une région
+
+    # City
+    link_city_list: Liste des villes
+    link_city_create: Créer une ville
+    link_city_edit: Editer une ville
+    link_city_delete: Supprimer une ville
+
+    # Location
+    link_location_list: Liste des lieux
+    link_location_create: Créer un lieu
+    link_location_edit: Editer un lieu
+    link_location_delete: Supprimer un lieu
+
+list:
+
+    # Country
+    label_iso: Code ISO
+    label_name: Nom
+
+    # Region
+    # label_iso: Code ISO
+    # label_name: Nom
+    label_country: Pays
+
+    # City
+    label_postal_code: Code postal
+    # label_name: Nom
+    label_region: Région
+
+    # Location
+    label_street: Rue
+    label_city: Ville
+
+form:
+
+    # Country
+    label_iso: Code ISO
+    label_name: Nom
+    label_regions: Régions
+
+    # Region
+    # label_iso: Code ISO
+    label_abbreviation: Abbréviation
+    # label_name: Nom
+    label_country: Pays
+    label_cities: Villes
+
+    # City
+    label_postal_code: Code postal
+    # label_name: Nom
+    label_region: Région
+    label_locations: Lieux
+
+    # Location
+    label_street: Rue
+    label_latitude: Latitude
+    label_longitude: Longitude
+    label_city: Ville

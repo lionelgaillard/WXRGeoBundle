@@ -13,12 +13,8 @@ class CountryAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('iso', null, array(
-                'label' => 'wxr_geo.country.iso'
-            ))
-            ->add('name', null, array(
-                'label' => 'wxr_geo.country.name'
-            ))
+            ->add('iso')
+            ->add('name')
         ;
     }
 

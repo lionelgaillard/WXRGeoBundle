@@ -50,6 +50,14 @@ list:
     label_street: Street
     label_city: City
 
+filter:
+
+    label_iso: ISO code
+    label_name: Name
+    label_country: Country
+    label_region: Region
+    label_city: City
+
 form:
 
     # Country

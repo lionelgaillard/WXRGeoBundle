@@ -50,6 +50,14 @@ list:
     label_street: Rue
     label_city: Ville
 
+filter:
+
+    label_iso: Code ISO
+    label_name: Nom
+    label_country: Pays
+    label_region: Région
+    label_city: Ville
+
 form:
 
     # Country

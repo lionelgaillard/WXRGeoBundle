@@ -7,3 +7,7 @@ breadcrumb:
     link_region_create: Créer un canton
     link_region_edit: Editer un canton
     link_region_delete: Supprimer un canton
+
+filter:
+
+    label_region: Canton

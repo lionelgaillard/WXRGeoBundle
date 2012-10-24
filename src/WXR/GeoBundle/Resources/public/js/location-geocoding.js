@@ -1,6 +1,17 @@
 (function ($) {
 
+    // Requires Google Maps API
+    if (!window.google || !google.maps) {
+        return;
+    }
+
     ({
+
+        $street:    null,
+        $city:      null,
+        $latitude:  null,
+        $longitude: null,
+        geocoder:   null,
 
         bind: function () {
             var self = this;
@@ -14,6 +25,7 @@
             this.$city      = $('.wxr-geo-location-city');
             this.$latitude  = $('.wxr-geo-location-latitude');
             this.$longitude = $('.wxr-geo-location-longitude');
+            this.geocoder   = new google.maps.Geocoder();
 
             this.$street.change(function () {
                 self.updateLatLng();
@@ -27,19 +39,20 @@
         updateLatLng: function () {
             var self = this;
 
-            $.ajax({
-                url: 'http://maps.googleapis.com/maps/api/geocode/json',
-                crossDomain: true,
-                data: {
-                    address: this.$street.val() + ' ' + (this.$city.find('option:selected').text())
-                },
-                success: function (data) {
-                    if (data.results && data.results.geometry) {
-                        self.$latitude.val(data.results.geometry.location.lat);
-                        self.$longitude.val(data.results.geometry.location.lng);
+            if (this.$street.val() && this.$city.val()) {
+
+                this.geocoder.geocode(
+                    { address: this.$street.val() + ' ' + this.$city.find('option:selected').text() },
+                    function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            self.$latitude.val(results[0].geometry.location.lat());
+                            self.$longitude.val(results[0].geometry.location.lng());
+                        }
                     }
-                }
-            })
+                );
+
+            }
+
         }
 
     }).bind();

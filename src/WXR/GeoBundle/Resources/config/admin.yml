@@ -51,6 +51,7 @@ services:
         arguments: [ ~, WXR\GeoBundle\Entity\Location, SonataAdminBundle:CRUD ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
+            - [ setTemplate: [ edit, WXRGeoBundle:CRUD:edit.twig.html ] ]
         tags:
             -
                 name: sonata.admin

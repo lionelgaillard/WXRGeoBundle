@@ -12,10 +12,21 @@ class LocationAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('street')
-            ->add('city', null, array('required' => false))
-            ->add('latitude', null, array('required' => false))
-            ->add('longitude', null, array('required' => false))
+            ->add('street', null, array(
+                'attr' => array('class' => 'span5 wxr-geo-location-street')
+            ))
+            ->add('city', null, array(
+                'required' => false,
+                'attr' => array('class' => 'span5 wxr-geo-location-city')
+            ))
+            ->add('latitude', null, array(
+                'required' => false,
+                'attr' => array('class' => 'input-small wxr-geo-location-latitude')
+            ))
+            ->add('longitude', null, array(
+                'required' => false,
+                'attr' => array('class' => 'input-small wxr-geo-location-longitude')
+            ))
         ;
     }
 

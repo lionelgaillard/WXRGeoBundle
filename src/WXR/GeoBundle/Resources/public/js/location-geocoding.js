@@ -28,7 +28,7 @@
             var self = this;
 
             $.ajax({
-                url: 'http://maps.googleapis.com/maps/api/geocode/json'
+                url: 'http://maps.googleapis.com/maps/api/geocode/json',
                 crossDomain: true,
                 data: {
                     address: this.$street.val() + ' ' + (this.$city.find('option:selected').text())

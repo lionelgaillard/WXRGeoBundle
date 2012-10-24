@@ -19,12 +19,14 @@ class LocationAdmin extends Admin
                 'required' => false,
                 'attr' => array('class' => 'span5 wxr-geo-location-city')
             ))
-            ->add('latitude', null, array(
+            ->add('latitude', 'number', array(
                 'required' => false,
+                'precision' => 8,
                 'attr' => array('class' => 'input-small wxr-geo-location-latitude')
             ))
-            ->add('longitude', null, array(
+            ->add('longitude', 'number', array(
                 'required' => false,
+                'precision' => 8,
                 'attr' => array('class' => 'input-small wxr-geo-location-longitude')
             ))
         ;

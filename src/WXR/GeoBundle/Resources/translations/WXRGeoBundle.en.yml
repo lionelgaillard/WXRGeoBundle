@@ -7,28 +7,28 @@ locations: Locations
 breadcrumb:
 
     # Country
-    link_country_list: Countries list
-    link_country_create: Create a country
-    link_country_edit: Edit a country
-    link_country_delete: Delete a country
+    link_country_list: Countries
+    link_country_create: Add
+    link_country_edit: Edit
+    link_country_delete: Delete
 
     # Region
-    link_region_list: Regions list
-    link_region_create: Create a region
-    link_region_edit: Edit a region
-    link_region_delete: Delete a region
+    link_region_list: Regions
+    link_region_create: Add
+    link_region_edit: Edit
+    link_region_delete: Delete
 
     # City
-    link_city_list: Cities list
-    link_city_create: Create a city
-    link_city_edit: Edit a city
-    link_city_delete: Delete a city
+    link_city_list: Cities
+    link_city_create: Add
+    link_city_edit: Edit
+    link_city_delete: Delete
 
     # Location
-    link_location_list: Locations list
-    link_location_create: Create a location
-    link_location_edit: Edit a location
-    link_location_delete: Delete a location
+    link_location_list: Locations
+    link_location_create: Add
+    link_location_edit: Edit
+    link_location_delete: Delete
 
 list:
 
@@ -37,13 +37,10 @@ list:
     label_name: Name
 
     # Region
-    # label_iso: ISO code
-    # label_name: Name
     label_country: Country
 
     # City
     label_postal_code: Postal code
-    # label_name: Name
     label_region: Region
 
     # Location
@@ -66,15 +63,12 @@ form:
     label_regions: Regions
 
     # Region
-    # label_iso: ISO code
     label_abbreviation: Abbreviation
-    # label_name: Name
     label_country: Country
     label_cities: Cities
 
     # City
     label_postal_code: Postal code
-    # label_name: Name
     label_region: Region
     label_locations: Locations
 

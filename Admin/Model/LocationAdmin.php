@@ -13,6 +13,7 @@ class LocationAdmin extends Admin
     {
         $formMapper
             ->add('street', null, array(
+                'required' => false,
                 'attr' => array('class' => 'span5 wxr-geo-location-street')
             ))
             ->add('city', null, array(

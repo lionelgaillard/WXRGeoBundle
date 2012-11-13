@@ -128,6 +128,15 @@ abstract class Region implements RegionInterface
     /**
      * {@inheritdoc}
      */
+    public function getCountryId()
+    {
+        return $this->getCountry() ?
+            $this->getCountry()->getId() : null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getCountryIso()
     {
         return $this->getCountry() ?

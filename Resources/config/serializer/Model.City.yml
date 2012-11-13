@@ -1,0 +1,31 @@
+WXR\GeoBundle\Model\City:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: integer
+        postalCode:
+            expose: true
+            type: string
+        name:
+            expose: true
+            type: string
+    virtual_properties:
+        getRegionId:
+            expose: true
+            type: integer
+        getRegionIso:
+            expose: true
+            type: string
+        getRegionName:
+            expose: true
+            type: string
+        getCountryId:
+            expose: true
+            type: integer
+        getCountryIso:
+            expose: true
+            type: string
+        getCountryName:
+            expose: true
+            type: string

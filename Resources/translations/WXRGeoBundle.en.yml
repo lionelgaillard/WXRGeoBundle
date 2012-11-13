@@ -4,6 +4,15 @@ regions: Regions
 cities: Cities
 locations: Locations
 
+layout:
+    countries: Countries
+    regions: Regions
+    cities: Cities
+    locations: Locations
+    no_result: No result
+    add: Add
+    edit: Edit
+
 breadcrumb:
 
     # Country

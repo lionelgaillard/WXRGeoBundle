@@ -4,6 +4,15 @@ regions: Régions
 cities: Villes
 locations: Lieux
 
+layout:
+    countries: Pays
+    regions: Régions
+    cities: Villes
+    locations: Lieux
+    no_result: Aucun résultat
+    add: Ajouter
+    edit: Editer
+
 breadcrumb:
 
     # Country

@@ -1,0 +1,12 @@
+WXR\GeoBundle\Model\Country:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: integer
+        iso:
+            expose: true
+            type: string
+        name:
+            expose: true
+            type: string

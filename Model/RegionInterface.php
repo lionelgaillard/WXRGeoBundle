@@ -59,6 +59,13 @@ interface RegionInterface
     public function getCountry();
 
     /**
+     * Get country id
+     *
+     * @return integer|null
+     */
+    public function getCountryId();
+
+    /**
      * Get country ISO
      *
      * @return string

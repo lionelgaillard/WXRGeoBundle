@@ -1,0 +1,14 @@
+wxr_geo_country_list:
+    pattern: /countries.{_format}
+    defaults: { _controller: 'WXRGeoBundle:Countries:list', _format: html }
+    requirements: { _format: (html|json|xml|yml) }
+
+wxr_geo_region_list:
+    pattern: /regions.{_format}
+    defaults: { _controller: 'WXRGeoBundle:Regions:list', _format: html }
+    requirements: { _format: (html|json|xml|yml) }
+
+wxr_geo_city_list:
+    pattern: /cities.{_format}
+    defaults: { _controller: 'WXRGeoBundle:Cities:list', _format: html }
+    requirements: { _format: (html|json|xml|yml) }

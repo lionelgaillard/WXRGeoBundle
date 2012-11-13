@@ -117,6 +117,15 @@ abstract class Location implements LocationInterface
     /**
      * {@inheritDoc}
      */
+    public function getCityId()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getId() : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getCityPostalCode()
     {
         return $this->getCity() ?
@@ -139,6 +148,15 @@ abstract class Location implements LocationInterface
     {
         return $this->getCity() ?
             $this->getCity()->getRegion() : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRegionId()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getRegionId() : null;
     }
 
     /**
@@ -175,6 +193,15 @@ abstract class Location implements LocationInterface
     {
         return $this->getRegion() ?
             $this->getRegion()->getCountry() : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCountryId()
+    {
+        return $this->getCity() ?
+            $this->getCity()->getCountryId() : null;
     }
 
     /**

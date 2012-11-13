@@ -16,10 +16,11 @@ class LocationAdmin extends Admin
                 'required' => false,
                 'attr' => array('class' => 'span5 wxr-geo-location-street')
             ))
-            ->add('city', null, array(
+            ->add('city', 'sonata_type_model', array(
                 'required' => false,
                 'attr' => array('class' => 'span5 wxr-geo-location-city')
             ))
+
             // Force to text type to avoid Intl issue
             ->add('latitude', 'text', array(
                 'required' => false,

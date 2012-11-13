@@ -62,6 +62,13 @@ interface CityInterface
     public function getRegion();
 
     /**
+     * Get region id
+     *
+     * @return integer|null
+     */
+    public function getRegionId();
+
+    /**
      * Get region ISO
      *
      * @return string
@@ -88,6 +95,13 @@ interface CityInterface
      * @return CountryInterface|null
      */
     public function getCountry();
+
+    /**
+     * Get country id
+     *
+     * @return integer|null
+     */
+    public function getCountryId();
 
     /**
      * Get country ISO

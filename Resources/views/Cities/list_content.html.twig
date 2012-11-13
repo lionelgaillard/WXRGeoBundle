@@ -1,0 +1,33 @@
+{##
+ # @param WXR\GeoBundle\Model\CityInterface[] cities
+ #}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>{{ 'layout.cities'|trans({}, 'WXRGeoBundle') }}</h1>
+    </div>
+
+    <ul>
+    {% for city in cities %}
+        <li>
+            {{ city }}
+        {%- if app.security.isGranted('ROLE_ADMIN') %}
+            <div class="btn-toolbar">
+                <a href="{{ path('admin_wxr_geo_country_edit', { id: city.id }) }}" class="btn">{{ 'layout.edit'|trans({}, 'WXRGeoBundle') }}</a>
+            </div>
+        {% endif -%}
+        </li>
+    {% else %}
+        <li>{{ 'layout.no_result'|trans({}, 'WXRGeoBundle') }}</li>
+    {% endfor %}
+    {% if app.security.isGranted('ROLE_ADMIN') %}
+        <li>
+            <div class="btn-toolbar">
+                <a href="{{ path('admin_wxr_geo_country_create') }}" class="btn">{{ 'layout.add'|trans({}, 'WXRGeoBundle') }}</a>
+            </div>
+        </li>
+    {% endif %}
+    </ul>
+
+{% endblock %}

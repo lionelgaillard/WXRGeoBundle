@@ -1,5 +1,8 @@
 regions: Cantons
 
+layout:
+    regions: Cantons
+
 breadcrumb:
 
     link_region_list: Cantons

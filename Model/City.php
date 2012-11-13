@@ -105,6 +105,15 @@ abstract class City implements CityInterface
     /**
      * {@inheritDoc}
      */
+    public function getRegionId()
+    {
+        return $this->getRegion() ?
+            $this->getRegion()->getId() : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getRegionIso()
     {
         return $this->getRegion() ?
@@ -136,6 +145,15 @@ abstract class City implements CityInterface
     {
         return $this->getRegion() ?
             $this->getRegion()->getCountry() : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCountryId()
+    {
+        return $this->getRegion() ?
+            $this->getRegion()->getCountryId() : null;
     }
 
     /**

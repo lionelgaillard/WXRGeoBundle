@@ -77,6 +77,13 @@ interface LocationInterface
     public function getCity();
 
     /**
+     * Get city id
+     *
+     * @return integer|null
+     */
+    public function getCityId();
+
+    /**
      * Get city postal code
      *
      * @return string
@@ -96,6 +103,13 @@ interface LocationInterface
      * @return RegionInterface|null
      */
     public function getRegion();
+
+    /**
+     * Get region id
+     *
+     * @return integer|null
+     */
+    public function getRegionId();
 
     /**
      * Get region ISO
@@ -124,6 +138,13 @@ interface LocationInterface
      * @return CityInterface|null
      */
     public function getCountry();
+
+    /**
+     * Get country id
+     *
+     * @return integer|null
+     */
+    public function getCountryId();
 
     /**
      * Get country ISO

@@ -16,7 +16,7 @@ class RegionAdmin extends Admin
             ->add('iso')
             ->add('abbreviation')
             ->add('name')
-            ->add('country', null, array('required' => false))
+            ->add('country', 'sonata_type_model', array('required' => false))
         ;
     }
 

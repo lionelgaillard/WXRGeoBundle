@@ -14,7 +14,9 @@ class CityAdmin extends Admin
         $formMapper
             ->add('postalCode')
             ->add('name')
-            ->add('region')
+            ->add('region', 'sonata_type_model', array(
+                'required' => false
+            ))
         ;
     }
 

@@ -2,13 +2,13 @@ wxr_geo: Géographie
 countries: Pays
 regions: Régions
 cities: Villes
-addresses: Lieux
+addresses: Adresses
 
 layout:
     countries: Pays
     regions: Régions
     cities: Villes
-    addresses: Lieux
+    addresses: Adresses
     no_result: Aucun résultat
     add: Ajouter
     edit: Editer
@@ -34,7 +34,7 @@ breadcrumb:
     link_city_delete: Supprimer
 
     # Address
-    link_address_list: Lieux
+    link_address_list: Adresses
     link_address_create: Ajouter
     link_address_edit: Editer
     link_address_delete: Supprimer

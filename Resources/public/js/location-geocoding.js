@@ -21,10 +21,10 @@
         init: function () {
             var self = this;
 
-            this.$street    = $('.wxr-geo-location-street');
-            this.$city      = $('.wxr-geo-location-city');
-            this.$latitude  = $('.wxr-geo-location-latitude');
-            this.$longitude = $('.wxr-geo-location-longitude');
+            this.$street    = $('.wxr-geo-address-street');
+            this.$city      = $('.wxr-geo-address-city');
+            this.$latitude  = $('.wxr-geo-address-latitude');
+            this.$longitude = $('.wxr-geo-address-longitude');
             this.geocoder   = new google.maps.Geocoder();
 
             this.$street.change(function () {
@@ -45,8 +45,8 @@
                     { address: this.$street.val() + ' ' + this.$city.find('option:selected').text() },
                     function (results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
-                            self.$latitude.val(results[0].geometry.location.lat());
-                            self.$longitude.val(results[0].geometry.location.lng());
+                            self.$latitude.val(results[0].geometry.address.lat());
+                            self.$longitude.val(results[0].geometry.address.lng());
                         }
                     }
                 );

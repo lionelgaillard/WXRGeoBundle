@@ -34,7 +34,7 @@ WXR\GeoBundle\Entity\City:
         name:
             - NotBlank: { message: wxr_geo.city.name.blank }
 
-WXR\GeoBundle\Entity\Location:
+WXR\GeoBundle\Entity\Address:
     properties:
         street:
-            - NotBlank: { message: wxr_geo.location.street.blank }
+            - NotBlank: { message: wxr_geo.address.street.blank }

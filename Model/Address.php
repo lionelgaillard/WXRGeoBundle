@@ -3,11 +3,11 @@
 namespace WXR\GeoBundle\Model;
 
 /**
- * WXR\GeoBundle\Model\Location
+ * WXR\GeoBundle\Model\Address
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-abstract class Location implements LocationInterface
+abstract class Address implements AddressInterface
 {
     /**
      * @var mixed

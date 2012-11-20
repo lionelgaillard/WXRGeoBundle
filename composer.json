@@ -2,7 +2,7 @@
     "name": "wxr/geo-bundle",
     "type": "symfony-bundle",
     "description": "Symfony WXRGeoBundle",
-    "keywords": [ "geo", "country", "region", "city", "location", "address" ],
+    "keywords": [ "geo", "country", "region", "city", "address", "address" ],
     "license": "MIT",
     "authors": [
         {

@@ -3,11 +3,11 @@
 namespace WXR\GeoBundle\Model;
 
 /**
- * WXR\GeoBundle\Model\LocationInterface
+ * WXR\GeoBundle\Model\AddressInterface
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-interface LocationInterface
+interface AddressInterface
 {
     /**
      * Get id
@@ -20,7 +20,7 @@ interface LocationInterface
      * Set street
      *
      * @param string $street
-     * @return LocationInterface
+     * @return AddressInterface
      */
     public function setStreet($street);
 
@@ -35,7 +35,7 @@ interface LocationInterface
      * Set latitude
      *
      * @param float $latitude
-     * @return LocationInterface
+     * @return AddressInterface
      */
     public function setLatitude($latitude);
 
@@ -50,7 +50,7 @@ interface LocationInterface
      * Set longitude
      *
      * @param float $longitude
-     * @return LocationInterface
+     * @return AddressInterface
      */
     public function setLongitude($longitude);
 
@@ -65,7 +65,7 @@ interface LocationInterface
      * Set city
      *
      * @param CityInterface|null $city
-     * @return LocationInterface
+     * @return AddressInterface
      */
     public function setCity(CityInterface $city = null);
 

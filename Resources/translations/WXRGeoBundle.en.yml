@@ -2,13 +2,13 @@ wxr_geo: Geography
 countries: Countries
 regions: Regions
 cities: Cities
-locations: Locations
+addresses: Addresses
 
 layout:
     countries: Countries
     regions: Regions
     cities: Cities
-    locations: Locations
+    addresses: Addresses
     no_result: No result
     add: Add
     edit: Edit
@@ -33,11 +33,11 @@ breadcrumb:
     link_city_edit: Edit
     link_city_delete: Delete
 
-    # Location
-    link_location_list: Locations
-    link_location_create: Add
-    link_location_edit: Edit
-    link_location_delete: Delete
+    # Address
+    link_address_list: Addresses
+    link_address_create: Add
+    link_address_edit: Edit
+    link_address_delete: Delete
 
 list:
 
@@ -52,7 +52,7 @@ list:
     label_postal_code: Postal code
     label_region: Region
 
-    # Location
+    # Address
     label_street: Street
     label_city: City
 
@@ -79,9 +79,9 @@ form:
     # City
     label_postal_code: Postal code
     label_region: Region
-    label_locations: Locations
+    label_addresses: Addresses
 
-    # Location
+    # Address
     label_street: Street
     label_latitude: Latitude
     label_longitude: Longitude

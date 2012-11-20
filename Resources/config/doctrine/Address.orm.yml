@@ -1,6 +1,6 @@
-WXR\GeoBundle\Entity\Location:
+WXR\GeoBundle\Entity\Address:
     type: entity
-    table: wxr_geo_location
+    table: wxr_geo_address
     id:
         id:
             type: integer
@@ -23,7 +23,7 @@ WXR\GeoBundle\Entity\Location:
     manyToOne:
         city:
             targetEntity: City
-            inversedBy: locations
+            inversedBy: addresses
             joinColumn:
                 name: city_id
                 referencedColumnName: id

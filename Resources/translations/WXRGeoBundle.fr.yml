@@ -2,13 +2,13 @@ wxr_geo: Géographie
 countries: Pays
 regions: Régions
 cities: Villes
-locations: Lieux
+addresses: Lieux
 
 layout:
     countries: Pays
     regions: Régions
     cities: Villes
-    locations: Lieux
+    addresses: Lieux
     no_result: Aucun résultat
     add: Ajouter
     edit: Editer
@@ -33,11 +33,11 @@ breadcrumb:
     link_city_edit: Editer
     link_city_delete: Supprimer
 
-    # Location
-    link_location_list: Lieux
-    link_location_create: Ajouter
-    link_location_edit: Editer
-    link_location_delete: Supprimer
+    # Address
+    link_address_list: Lieux
+    link_address_create: Ajouter
+    link_address_edit: Editer
+    link_address_delete: Supprimer
 
 list:
 
@@ -52,7 +52,7 @@ list:
     label_postal_code: Code postal
     label_region: Région
 
-    # Location
+    # Address
     label_street: Rue
     label_city: Ville
 
@@ -79,9 +79,9 @@ form:
     # City
     label_postal_code: Code postal
     label_region: Région
-    label_locations: Lieux
+    label_addresses: Lieux
 
-    # Location
+    # Address
     label_street: Rue
     label_latitude: Latitude
     label_longitude: Longitude

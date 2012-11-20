@@ -30,14 +30,14 @@ abstract class City implements CityInterface
     protected $region;
 
     /**
-     * @var LocationInterface[]
+     * @var AddressInterface[]
      */
-    protected $locations;
+    protected $addresses;
 
 
     public function __construct()
     {
-        $this->locations = array();
+        $this->addresses = array();
     }
 
     /**
@@ -177,12 +177,12 @@ abstract class City implements CityInterface
     /**
      * {@inheritDoc}
      */
-    public function setLocations($locations)
+    public function setAddresses($addresses)
     {
-        $this->clearLocations();
+        $this->clearAddresses();
 
-        foreach ($locations as $location) {
-            $this->addCity($location);
+        foreach ($addresses as $address) {
+            $this->addCity($address);
         }
 
         return $this;
@@ -191,11 +191,11 @@ abstract class City implements CityInterface
     /**
      * {@inheritDoc}
      */
-    public function addCity(CityInterface $location)
+    public function addCity(CityInterface $address)
     {
-        if (!$this->hasCity($location)) {
-            $location->setCity($this);
-            $this->locations[] = $location;
+        if (!$this->hasCity($address)) {
+            $address->setCity($this);
+            $this->addresses[] = $address;
         }
 
         return $this;
@@ -204,12 +204,12 @@ abstract class City implements CityInterface
     /**
      * {@inheritDoc}
      */
-    public function removeCity(CityInterface $location)
+    public function removeCity(CityInterface $address)
     {
-        if ($this->hasCity($location)) {
-            $key = array_search($location, $this->locations, true);
-            $location->setCity(null);
-            unset($this->locations[$key]);
+        if ($this->hasCity($address)) {
+            $key = array_search($address, $this->addresses, true);
+            $address->setCity(null);
+            unset($this->addresses[$key]);
         }
 
         return $this;
@@ -218,13 +218,13 @@ abstract class City implements CityInterface
     /**
      * {@inheritDoc}
      */
-    public function clearLocations()
+    public function clearAddresses()
     {
-        foreach ($this->locations as $location) {
-            $location->setCity(null);
+        foreach ($this->addresses as $address) {
+            $address->setCity(null);
         }
 
-        $this->locations = array();
+        $this->addresses = array();
 
         return $this;
     }
@@ -232,17 +232,17 @@ abstract class City implements CityInterface
     /**
      * {@inheritDoc}
      */
-    public function getLocations()
+    public function getAddresses()
     {
-        return $this->locations;
+        return $this->addresses;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function hasCity(CityInterface $location)
+    public function hasCity(CityInterface $address)
     {
-        return array_search($location, $this->locations, true) !== false;
+        return array_search($address, $this->addresses, true) !== false;
     }
 
     /**

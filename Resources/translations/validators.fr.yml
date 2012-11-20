@@ -24,6 +24,6 @@ wxr_geo:
             blank: Veuillez entrer un code postal
         name:
             blank: Veuillez entrer un nom
-    location:
+    address:
         street:
             blank: Veuillez entrer une rue

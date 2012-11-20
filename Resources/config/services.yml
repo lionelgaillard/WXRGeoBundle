@@ -12,9 +12,9 @@ parameters:
     wxr_geo.city.admin.class: WXR\GeoBundle\Admin\Entity\CityAdmin
     wxr_geo.city.manager.class: WXR\GeoBundle\Entity\CityManager
 
-    wxr_geo.location.class: WXR\GeoBundle\Entity\Location
-    wxr_geo.location.admin.class: WXR\GeoBundle\Admin\Entity\LocationAdmin
-    wxr_geo.location.manager.class: WXR\GeoBundle\Entity\LocationManager
+    wxr_geo.address.class: WXR\GeoBundle\Entity\Address
+    wxr_geo.address.admin.class: WXR\GeoBundle\Admin\Entity\AddressAdmin
+    wxr_geo.address.manager.class: WXR\GeoBundle\Entity\AddressManager
 
     wxr_geo.translation_domain: WXRGeoBundle
 
@@ -71,12 +71,12 @@ services:
                 label_catalogue: WXRGeoBundle
                 label_translator_strategy: sonata.admin.label.strategy.underscore
 
-    wxr_geo.location.manager:
-        class: %wxr_geo.location.manager.class%
-        arguments: [@doctrine.orm.entity_manager, %wxr_geo.location.class%]
-    wxr_geo.location.admin:
-        class: %wxr_geo.location.admin.class%
-        arguments: [ ~, %wxr_geo.location.class%, SonataAdminBundle:CRUD ]
+    wxr_geo.address.manager:
+        class: %wxr_geo.address.manager.class%
+        arguments: [@doctrine.orm.entity_manager, %wxr_geo.address.class%]
+    wxr_geo.address.admin:
+        class: %wxr_geo.address.admin.class%
+        arguments: [ ~, %wxr_geo.address.class%, SonataAdminBundle:CRUD ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
             - [ setTemplate, [ edit, WXRGeoBundle:CRUD:edit.html.twig ] ]
@@ -85,6 +85,6 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: wxr_geo
-                label: locations
+                label: addresses
                 label_catalogue: WXRGeoBundle
                 label_translator_strategy: sonata.admin.label.strategy.underscore

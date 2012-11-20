@@ -118,43 +118,43 @@ interface CityInterface
     public function getCountryName();
 
     /**
-     * Set locations
+     * Set addresses
      *
-     * @param LocationInterface[] $locations
+     * @param AddressInterface[] $addresses
      * @return CityInterface
      */
-    public function setLocations($locations);
+    public function setAddresses($addresses);
 
     /**
-     * Add location
+     * Add address
      *
-     * @param LocationInterface $location
+     * @param AddressInterface $address
      * @return CityInterface
      */
-    public function addLocation(LocationInterface $location);
+    public function addAddress(AddressInterface $address);
 
     /**
-     * Remove location
+     * Remove address
      *
-     * @param LocationInterface $location
+     * @param AddressInterface $address
      * @return CityInterface
      */
-    public function removeLocation(LocationInterface $location);
+    public function removeAddress(AddressInterface $address);
 
     /**
-     * Get locations
+     * Get addresses
      *
-     * @return LocationInterface[]
+     * @return AddressInterface[]
      */
-    public function getLocations();
+    public function getAddresses();
 
     /**
-     * Has location
+     * Has address
      *
-     * @param LocationInterface $location
+     * @param AddressInterface $address
      * @return boolean
      */
-    public function hasLocation(LocationInterface $location);
+    public function hasAddress(AddressInterface $address);
 
     /**
      * @return string

@@ -5,7 +5,7 @@ namespace WXR\GeoBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 
 use WXR\GeoBundle\Model\City as BaseCity;
-use WXR\GeoBundle\Model\LocationInterface;
+use WXR\GeoBundle\Model\AddressInterface;
 
 /**
  * WXR\GeoBundle\Entity\City
@@ -17,17 +17,17 @@ class City extends BaseCity
     public function __construct()
     {
         parent::__construct();
-        $this->locations = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function addLocation(LocationInterface $location)
+    public function addAddress(AddressInterface $address)
     {
-        if (!$this->hasLocation($location)) {
-            $location->setCity($this);
-            $this->locations->add($location);
+        if (!$this->hasAddress($address)) {
+            $address->setCity($this);
+            $this->addresses->add($address);
         }
 
         return $this;
@@ -36,11 +36,11 @@ class City extends BaseCity
     /**
      * {@inheritdoc}
      */
-    public function removeLocation(LocationInterface $location)
+    public function removeAddress(AddressInterface $address)
     {
-        if ($this->hasLocation($location)) {
-            $location->setCity(null);
-            $this->locations->removeElement($location);
+        if ($this->hasAddress($address)) {
+            $address->setCity(null);
+            $this->addresses->removeElement($address);
         }
 
         return $this;
@@ -49,13 +49,13 @@ class City extends BaseCity
     /**
      * {@inheritdoc}
      */
-    public function clearLocations()
+    public function clearAddresses()
     {
-        foreach ($this->locations as $location) {
-            $location->setCity(null);
+        foreach ($this->addresses as $address) {
+            $address->setCity(null);
         }
 
-        $this->locations = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
 
         return $this;
     }
@@ -63,16 +63,16 @@ class City extends BaseCity
     /**
      * {@inheritdoc}
      */
-    public function getLocations()
+    public function getAddresses()
     {
-        return $this->locations;
+        return $this->addresses;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function hasLocation(LocationInterface $location)
+    public function hasAddress(AddressInterface $address)
     {
-        return $this->locations->contains($location);
+        return $this->addresses->contains($address);
     }
 }

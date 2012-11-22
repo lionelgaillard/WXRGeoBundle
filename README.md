@@ -15,7 +15,7 @@ Installation
 ### AppKernel (1)
 
 ``` php
-        new Sonata\EasyExtendsBundle\SonataEasyEXtendsBundle(),
+        new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
 
         new WXR\CommonBundle\WXRCommonBundle(),
         new WXR\GeoBundle\WXRGeoBundle(),
@@ -30,9 +30,7 @@ Installation
 ### AppKernel (2)
 
 ``` php
-        // ...
         new Application\WXR\GeoBundle\ApplicationWXRGeoBundle(),
-        // ...
 ```
 
 ### Routing

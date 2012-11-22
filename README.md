@@ -12,6 +12,7 @@ Installation
 
 `$ composer update`
 
+
 ### AppKernel (1)
 
 ``` php
@@ -21,11 +22,13 @@ Installation
         new WXR\GeoBundle\WXRGeoBundle(),
 ```
 
+
 ### SonataEasyExtendsBundle
 
 `$ php app/console sonata:easy-extends:generate WXRGeoBundle --dest=src`
 
 -   [SonataEasyExtendsBundle documentation](http://sonata-project.org/bundles/easy-extends/master/doc/index.html)
+
 
 ### AppKernel (2)
 
@@ -33,7 +36,8 @@ Installation
         new Application\WXR\GeoBundle\ApplicationWXRGeoBundle(),
 ```
 
-### Routing
+
+### Routing (optional)
 
 ``` yaml
 # app/config/routing.yml
@@ -43,10 +47,28 @@ wxr_geo:
 
 ```
 
+Useful for autocompletion.
+
+
+### Google Map API (optional)
+
+Override `SonataAdminBundle::standard_layout.html.twig` to import Google Map API.
+
+``` html
+            <!-- Google Maps API -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=false"></script>
+```
+
+Latitude and longitude will be automatically retrieved trough [geocoding.js](https://github.com/Ascarius/WXRGeoBundle/blob/master/Resources/public/js/geocoding.js).
+
+-   [Google Geocoding API documenation](https://developers.google.com/maps/documentation/geocoding/index)
+
+
 Configuration
 -------------
 
 WXRGeoBundle doesn't require any configuration.
+
 
 ### Default configuration
 

@@ -16,6 +16,7 @@ services:
         arguments: [ ~, %wxr_geo.country.class%, %wxr_geo.country.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
+            - [ setTemplate, [ edit, WXRGeoBundle:CRUD:edit.html.twig ] ]
         tags:
             -
                 name: sonata.admin
@@ -34,6 +35,7 @@ services:
         arguments: [ ~, %wxr_geo.region.class%, %wxr_geo.region.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
+            - [ setTemplate, [ edit, WXRGeoBundle:CRUD:edit.html.twig ] ]
         tags:
             -
                 name: sonata.admin
@@ -52,6 +54,7 @@ services:
         arguments: [ ~, %wxr_geo.city.class%, %wxr_geo.city.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
+            - [ setTemplate, [ edit, WXRGeoBundle:CRUD:edit.html.twig ] ]
         tags:
             -
                 name: sonata.admin
@@ -70,6 +73,7 @@ services:
         arguments: [ ~, %wxr_geo.address.class%, %wxr_geo.address.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
+            - [ setTemplate, [ edit, WXRGeoBundle:CRUD:edit.html.twig ] ]
         tags:
             -
                 name: sonata.admin

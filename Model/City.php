@@ -25,6 +25,16 @@ abstract class City implements CityInterface
     protected $name;
 
     /**
+     * @var float
+     */
+    protected $latitude;
+
+    /**
+     * @var float
+     */
+    protected $longitude;
+
+    /**
      * @var RegionInterface|null
      */
     protected $region;
@@ -82,6 +92,42 @@ abstract class City implements CityInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = (float) $latitude;
+    
+        return $this;
+    }
+    
+    /** 
+     * {@inheritDoc}
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = (float) $longitude;
+    
+        return $this;
+    }
+    
+    /** 
+     * {@inheritDoc}
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
     }
 
     /**

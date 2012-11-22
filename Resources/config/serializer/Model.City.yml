@@ -10,6 +10,12 @@ WXR\GeoBundle\Model\City:
         name:
             expose: true
             type: string
+        latitude:
+            expose: true
+            type: double
+        longitude:
+            expose: true
+            type: double
     virtual_properties:
         getRegionId:
             expose: true

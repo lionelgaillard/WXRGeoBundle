@@ -16,13 +16,9 @@ class RegionsController extends Controller
 
         $regions = $this->getRegionManager()->findAll();
 
-        if ($format === 'html') {
-            return $this->render('WXRGeoBundle:Regions:list.html.twig', compact('regions'));
-        } else {
-            $serializer = $this->get('serializer');
-            $data = $serializer->serialize($regions, $format);
-            return new Response($data);
-        }
+        $serializer = $this->get('serializer');
+        $data = $serializer->serialize($regions, $format);
+        return new Response($data);
     }
 
     /**

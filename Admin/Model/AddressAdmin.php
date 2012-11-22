@@ -14,24 +14,23 @@ class AddressAdmin extends Admin
         $formMapper
             ->add('street', null, array(
                 'required' => false,
-                'attr' => array('class' => 'span5 wxr-geo-address-street')
+                'attr' => array('data-wxr-geo-input' => true)
             ))
             ->add('city', 'sonata_type_model', array(
                 'required' => false,
-                'attr' => array('class' => 'span5 wxr-geo-address-city')
+                'attr' => array('data-wxr-geo-input' => true)
             ))
-
             // Force to text type to avoid Intl issue
             ->add('latitude', 'text', array(
                 'required' => false,
                 //'precision' => 8,
-                'attr' => array('class' => 'input-small wxr-geo-address-latitude')
+                'attr' => array('data-wxr-geo-latitude' => true)
             ))
             // Force to text type to avoid Intl issue
             ->add('longitude', 'text', array(
                 'required' => false,
                 //'precision' => 8,
-                'attr' => array('class' => 'input-small wxr-geo-address-longitude')
+                'attr' => array('data-wxr-geo-longitude' => true)
             ))
         ;
     }

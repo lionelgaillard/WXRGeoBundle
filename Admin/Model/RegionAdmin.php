@@ -15,8 +15,25 @@ class RegionAdmin extends Admin
         $formMapper
             ->add('iso')
             ->add('abbreviation')
-            ->add('name')
-            ->add('country', 'sonata_type_model', array('required' => false))
+            ->add('name', null, array(
+                'attr' => array('data-wxr-geo-input' => true)
+            ))
+            ->add('country', 'sonata_type_model', array(
+                'required' => false,
+                'attr' => array('data-wxr-geo-input' => true)
+            ))
+            // Force to text type to avoid Intl issue
+            ->add('latitude', 'text', array(
+                'required' => false,
+                //'precision' => 8,
+                'attr' => array('data-wxr-geo-latitude' => true)
+            ))
+            // Force to text type to avoid Intl issue
+            ->add('longitude', 'text', array(
+                'required' => false,
+                //'precision' => 8,
+                'attr' => array('data-wxr-geo-longitude' => true)
+            ))
         ;
     }
 

@@ -10,3 +10,9 @@ WXR\GeoBundle\Model\Country:
         name:
             expose: true
             type: string
+        latitude:
+            expose: true
+            type: double
+        longitude:
+            expose: true
+            type: double

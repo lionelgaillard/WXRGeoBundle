@@ -13,6 +13,12 @@ WXR\GeoBundle\Model\Region:
         name:
             expose: true
             type: string
+        latitude:
+            expose: true
+            type: double
+        longitude:
+            expose: true
+            type: double
     virtual_properties:
         getCountryId:
             expose: true

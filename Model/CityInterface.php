@@ -7,7 +7,7 @@ namespace WXR\GeoBundle\Model;
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-interface CityInterface
+interface CityInterface extends GeolocalisableInterface
 {
     /**
      * Get id

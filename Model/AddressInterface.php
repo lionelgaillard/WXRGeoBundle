@@ -7,7 +7,7 @@ namespace WXR\GeoBundle\Model;
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-interface AddressInterface
+interface AddressInterface extends GeolocalisableInterface
 {
     /**
      * Get id
@@ -30,36 +30,6 @@ interface AddressInterface
      * @return string
      */
     public function getStreet();
-
-    /**
-     * Set latitude
-     *
-     * @param float $latitude
-     * @return AddressInterface
-     */
-    public function setLatitude($latitude);
-
-    /**
-     * Get latitude
-     *
-     * @return float
-     */
-    public function getLatitude();
-
-    /**
-     * Set longitude
-     *
-     * @param float $longitude
-     * @return AddressInterface
-     */
-    public function setLongitude($longitude);
-
-    /**
-     * Get longitude
-     *
-     * @return float
-     */
-    public function getLongitude();
 
     /**
      * Set city

@@ -16,13 +16,9 @@ class CountriesController extends Controller
 
         $countries = $this->getCountryManager()->findAll();
 
-        if ($format === 'html') {
-            return $this->render('WXRGeoBundle:Countries:list.html.twig', compact('countries'));
-        } else {
-            $serializer = $this->get('serializer');
-            $data = $serializer->serialize($countries, $format);
-            return new Response($data);
-        }
+        $serializer = $this->get('serializer');
+        $data = $serializer->serialize($countries, $format);
+        return new Response($data);
     }
 
     /**

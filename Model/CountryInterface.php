@@ -7,7 +7,7 @@ namespace WXR\GeoBundle\Model;
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-interface CountryInterface
+interface CountryInterface extends GeolocalisableInterface
 {
     /**
      * @return mixed

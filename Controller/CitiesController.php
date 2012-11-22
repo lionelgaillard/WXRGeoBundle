@@ -16,13 +16,9 @@ class CitiesController extends Controller
 
         $cities = $this->getCityManager()->findAll();
 
-        if ($format === 'html') {
-            return $this->render('WXRGeoBundle:Cities:list.html.twig', compact('cities'));
-        } else {
-            $serializer = $this->get('serializer');
-            $data = $serializer->serialize($cities, $format);
-            return new Response($data);
-        }
+        $serializer = $this->get('serializer');
+        $data = $serializer->serialize($cities, $format);
+        return new Response($data);
     }
 
     /**

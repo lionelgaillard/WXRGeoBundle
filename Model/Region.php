@@ -30,6 +30,16 @@ abstract class Region implements RegionInterface
     protected $name;
 
     /**
+     * @var float
+     */
+    protected $latitude;
+
+    /**
+     * @var float
+     */
+    protected $longitude;
+
+    /**
      * @var CountryInterface
      */
     protected $country;
@@ -105,6 +115,42 @@ abstract class Region implements RegionInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = (float) $latitude;
+    
+        return $this;
+    }
+    
+    /** 
+     * {@inheritDoc}
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = (float) $longitude;
+    
+        return $this;
+    }
+    
+    /** 
+     * {@inheritDoc}
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
     }
 
     /**

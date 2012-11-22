@@ -4,15 +4,10 @@ namespace WXR\GeoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-use WXR\GeoBundle\Model\Country as BaseCountry;
+use WXR\GeoBundle\Model\Country as AbstractCountry;
 use WXR\GeoBundle\Model\RegionInterface;
 
-/**
- * WXR\GeoBundle\Entity\Country
- *
- * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
- */
-class Country extends BaseCountry
+class BaseCountry extends AbstractCountry
 {
     public function __construct()
     {

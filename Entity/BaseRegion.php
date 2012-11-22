@@ -5,14 +5,14 @@ namespace WXR\GeoBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 
 use WXR\GeoBundle\Model\CityInterface;
-use WXR\GeoBundle\Model\Region as BaseRegion;
+use WXR\GeoBundle\Model\Region as AbstractRegion;
 
 /**
  * WXR\GeoBundle\Entity\Region
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-class Region extends BaseRegion
+class BaseRegion extends AbstractRegion
 {
     public function __construct()
     {

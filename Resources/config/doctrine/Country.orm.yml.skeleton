@@ -1,17 +1,11 @@
-WXR\GeoBundle\Entity\Country:
+Application\WXR\GeoBundle\Entity\Country:
     type: entity
     table: wxr_geo_country
     id:
         id:
             type: integer
             generator: { strategy: AUTO }
-    fields:
-        iso:
-            length: 2
-            unique: true
-        name:
-            length: 50
     oneToMany:
         regions:
-            targetEntity: Region
+            targetEntity: Application\WXR\GeoBundle\Entity\Region
             mappedBy: country

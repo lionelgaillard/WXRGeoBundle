@@ -1,31 +1,19 @@
 parameters:
 
-    wxr_geo.country.class: WXR\GeoBundle\Entity\Country
-    wxr_geo.country.admin.class: WXR\GeoBundle\Admin\Entity\CountryAdmin
-    wxr_geo.country.manager.class: WXR\GeoBundle\Entity\CountryManager
-
-    wxr_geo.region.class: WXR\GeoBundle\Entity\Region
-    wxr_geo.region.admin.class: WXR\GeoBundle\Admin\Entity\RegionAdmin
-    wxr_geo.region.manager.class: WXR\GeoBundle\Entity\RegionManager
-
-    wxr_geo.city.class: WXR\GeoBundle\Entity\City
-    wxr_geo.city.admin.class: WXR\GeoBundle\Admin\Entity\CityAdmin
-    wxr_geo.city.manager.class: WXR\GeoBundle\Entity\CityManager
-
-    wxr_geo.address.class: WXR\GeoBundle\Entity\Address
-    wxr_geo.address.admin.class: WXR\GeoBundle\Admin\Entity\AddressAdmin
-    wxr_geo.address.manager.class: WXR\GeoBundle\Entity\AddressManager
-
-    wxr_geo.translation_domain: WXRGeoBundle
+    wxr_geo.country.class: Application\WXR\GeoBundle\Entity\Country
+    wxr_geo.region.class: Application\WXR\GeoBundle\Entity\Region
+    wxr_geo.city.class: Application\WXR\GeoBundle\Entity\City
+    wxr_geo.address.class: Application\WXR\GeoBundle\Entity\Address
 
 services:
 
-    wxr_geo.country.manager:
-        class: %wxr_geo.country.manager.class%
+    wxr_geo.country.manager.default:
+        class: WXR\GeoBundle\Entity\CountryManager
         arguments: [@doctrine.orm.entity_manager, %wxr_geo.country.class%]
+
     wxr_geo.country.admin:
         class: %wxr_geo.country.admin.class%
-        arguments: [ ~, %wxr_geo.country.class%, SonataAdminBundle:CRUD ]
+        arguments: [ ~, %wxr_geo.country.class%, %wxr_geo.country.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
         tags:
@@ -34,15 +22,16 @@ services:
                 manager_type: orm
                 group: wxr_geo
                 label: countries
-                label_catalogue: WXRGeoBundle
+                label_catalogue: %wxr_geo.translation_domain%
                 label_translator_strategy: sonata.admin.label.strategy.underscore
 
-    wxr_geo.region.manager:
-        class: %wxr_geo.region.manager.class%
-        arguments: [@doctrine.orm.entity_manager, %wxr_geo.region.class%]
+    wxr_geo.region.manager.default:
+        class: WXR\GeoBundle\Entity\RegionManager
+        arguments: [@doctrine.orm.entity_manager, %wxr_geo.region.class%, %wxr_geo.country.class%]
+
     wxr_geo.region.admin:
         class: %wxr_geo.region.admin.class%
-        arguments: [ ~, %wxr_geo.region.class%, SonataAdminBundle:CRUD ]
+        arguments: [ ~, %wxr_geo.region.class%, %wxr_geo.region.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
         tags:
@@ -51,15 +40,16 @@ services:
                 manager_type: orm
                 group: wxr_geo
                 label: regions
-                label_catalogue: WXRGeoBundle
+                label_catalogue: %wxr_geo.translation_domain%
                 label_translator_strategy: sonata.admin.label.strategy.underscore
 
-    wxr_geo.city.manager:
-        class: %wxr_geo.city.manager.class%
+    wxr_geo.city.manager.default:
+        class: WXR\GeoBundle\Entity\CityManager
         arguments: [@doctrine.orm.entity_manager, %wxr_geo.city.class%]
+
     wxr_geo.city.admin:
         class: %wxr_geo.city.admin.class%
-        arguments: [ ~, %wxr_geo.city.class%, SonataAdminBundle:CRUD ]
+        arguments: [ ~, %wxr_geo.city.class%, %wxr_geo.city.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
         tags:
@@ -68,23 +58,23 @@ services:
                 manager_type: orm
                 group: wxr_geo
                 label: cities
-                label_catalogue: WXRGeoBundle
+                label_catalogue: %wxr_geo.translation_domain%
                 label_translator_strategy: sonata.admin.label.strategy.underscore
 
-    wxr_geo.address.manager:
-        class: %wxr_geo.address.manager.class%
+    wxr_geo.address.manager.default:
+        class: WXR\GeoBundle\Entity\AddressManager
         arguments: [@doctrine.orm.entity_manager, %wxr_geo.address.class%]
+
     wxr_geo.address.admin:
         class: %wxr_geo.address.admin.class%
-        arguments: [ ~, %wxr_geo.address.class%, SonataAdminBundle:CRUD ]
+        arguments: [ ~, %wxr_geo.address.class%, %wxr_geo.address.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
-            - [ setTemplate, [ edit, WXRGeoBundle:CRUD:edit.html.twig ] ]
         tags:
             -
                 name: sonata.admin
                 manager_type: orm
                 group: wxr_geo
                 label: addresses
-                label_catalogue: WXRGeoBundle
+                label_catalogue: %wxr_geo.translation_domain%
                 label_translator_strategy: sonata.admin.label.strategy.underscore

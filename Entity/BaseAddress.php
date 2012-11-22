@@ -2,13 +2,13 @@
 
 namespace WXR\GeoBundle\Entity;
 
-use WXR\GeoBundle\Model\Address as BaseAddress;
+use WXR\GeoBundle\Model\Address as AbstractAddress;
 
 /**
  * WXR\GeoBundle\Entity\Address
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-class Address extends BaseAddress
+class BaseAddress extends AbstractAddress
 {
 }

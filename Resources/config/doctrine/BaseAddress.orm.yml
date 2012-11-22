@@ -1,0 +1,17 @@
+WXR\GeoBundle\Entity\BaseAddress:
+    type: mappedSuperclass
+    fields:
+        street:
+            type: string
+            length: 255
+            nullable: true
+        latitude:
+            type: decimal
+            precision: 8
+            scale: 6
+            nullable: true
+        longitude:
+            type: decimal
+            precision: 8
+            scale: 6
+            nullable: true

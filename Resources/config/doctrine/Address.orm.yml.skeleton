@@ -1,0 +1,15 @@
+Application\WXR\GeoBundle\Entity\Address:
+    type: entity
+    table: wxr_geo_address
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    manyToOne:
+        city:
+            targetEntity: Application\WXR\GeoBundle\Entity\City
+            inversedBy: addresses
+            joinColumn:
+                name: city_id
+                referencedColumnName: id
+                onDelete: SET NULL

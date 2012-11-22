@@ -1,0 +1,9 @@
+WXR\GeoBundle\Entity\BaseRegion:
+    type: mappedSuperclass
+    fields:
+        iso:
+            length: 5
+        abbreviation:
+            length: 2
+        name:
+            length: 50

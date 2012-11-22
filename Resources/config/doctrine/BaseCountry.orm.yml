@@ -1,0 +1,8 @@
+WXR\GeoBundle\Entity\BaseCountry:
+    type: mappedSuperclass
+    fields:
+        iso:
+            length: 2
+            unique: true
+        name:
+            length: 50

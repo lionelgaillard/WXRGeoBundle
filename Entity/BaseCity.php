@@ -4,7 +4,7 @@ namespace WXR\GeoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-use WXR\GeoBundle\Model\City as BaseCity;
+use WXR\GeoBundle\Model\City as AbstractCity;
 use WXR\GeoBundle\Model\AddressInterface;
 
 /**
@@ -12,7 +12,7 @@ use WXR\GeoBundle\Model\AddressInterface;
  *
  * @author Lionel Gaillard <lionel.gaillard@wxrstudios.com>
  */
-class City extends BaseCity
+class BaseCity extends AbstractCity
 {
     public function __construct()
     {

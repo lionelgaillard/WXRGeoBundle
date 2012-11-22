@@ -7,6 +7,9 @@ WXR\GeoBundle\Model\Region:
         iso:
             expose: true
             type: string
+        abbreviation:
+            expose: true
+            type: string
         name:
             expose: true
             type: string

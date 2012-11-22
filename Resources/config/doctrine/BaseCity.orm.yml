@@ -1,0 +1,8 @@
+WXR\GeoBundle\Entity\BaseCity:
+    type: mappedSuperclass
+    fields:
+        postalCode:
+            column: postal_code
+            length: 10
+        name:
+            length: 50

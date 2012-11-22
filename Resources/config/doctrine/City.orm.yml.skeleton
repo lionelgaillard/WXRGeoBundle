@@ -1,19 +1,15 @@
-WXR\GeoBundle\Entity\City:
+Application\WXR\GeoBundle\Entity\City:
     type: entity
     table: wxr_geo_city
+    indexes:
+        IDX_postal_code: { columns: [ postal_code ] }
     id:
         id:
             type: integer
             generator: { strategy: AUTO }
-    fields:
-        postalCode:
-            column: postal_code
-            length: 10
-        name:
-            length: 50
     manyToOne:
         region:
-            targetEntity: Region
+            targetEntity: Application\WXR\GeoBundle\Entity\Region
             inversedBy: cities
             joinColumn:
                 name: region_id
@@ -21,5 +17,5 @@ WXR\GeoBundle\Entity\City:
                 onDelete: SET NULL
     oneToMany:
         addresses:
-            targetEntity: Address
+            targetEntity: Application\WXR\GeoBundle\Entity\Address
             mappedBy: city

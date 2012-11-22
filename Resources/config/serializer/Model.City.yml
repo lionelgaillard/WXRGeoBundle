@@ -17,6 +17,9 @@ WXR\GeoBundle\Model\City:
         getRegionIso:
             expose: true
             type: string
+        getRegionAbbreviation:
+            expose: true
+            type: string
         getRegionName:
             expose: true
             type: string

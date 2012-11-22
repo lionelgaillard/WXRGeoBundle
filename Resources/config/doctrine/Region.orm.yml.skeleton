@@ -1,20 +1,13 @@
-WXR\GeoBundle\Entity\Region:
+Application\WXR\GeoBundle\Entity\Region:
     type: entity
     table: wxr_geo_region
     id:
         id:
             type: integer
             generator: { strategy: AUTO }
-    fields:
-        iso:
-            length: 5
-        abbreviation:
-            length: 2
-        name:
-            length: 50
     manyToOne:
         country:
-            targetEntity: Country
+            targetEntity: Application\WXR\GeoBundle\Entity\Country
             inversedBy: regions
             joinColumn:
                 name: country_id
@@ -22,5 +15,5 @@ WXR\GeoBundle\Entity\Region:
                 onDelete: SET NULL
     oneToMany:
         cities:
-            targetEntity: City
+            targetEntity: Application\WXR\GeoBundle\Entity\City
             mappedBy: region

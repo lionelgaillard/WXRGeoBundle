@@ -77,6 +77,7 @@ services:
         tags:
             -
                 name: sonata.admin
+                show_in_dashboard: false
                 manager_type: orm
                 group: wxr_geo
                 label: addresses

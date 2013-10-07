@@ -50,6 +50,9 @@ abstract class Region implements RegionInterface
     protected $cities;
 
 
+    /**
+     * Constructor
+     */
     protected function __construct()
     {
         $this->cities = array();

@@ -12,3 +12,8 @@ wxr_geo_city_list:
     pattern: /cities.{_format}
     defaults: { _controller: 'WXRGeoBundle:Cities:list', _format: json }
     requirements: { _format: (json|xml|yml) }
+
+wxr_geo_place_list:
+    pattern: /places.{_format}
+    defaults: { _controller: 'WXRGeoBundle:Places:list', _format: json }
+    requirements: { _format: (json|xml|yml) }

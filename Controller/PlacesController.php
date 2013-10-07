@@ -5,25 +5,25 @@ namespace WXR\GeoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class RegionsController extends Controller
+class PlacesController extends Controller
 {
     public function listAction()
     {
         $request = $this->getRequest();
         $format = $request->get('_format');
 
-        $regions = $this->getRegionManager()->findAll();
+        $places = $this->getPlaceManager()->findAll();
 
         $serializer = $this->get('serializer');
-        $data = $serializer->serialize($regions, $format);
+        $data = $serializer->serialize($places, $format);
         return new Response($data);
     }
 
     /**
-     * @return WXR\GeoBundle\Model\RegionManagerInterface
+     * @return WXR\GeoBundle\Model\PlaceManagerInterface
      */
-    protected function getRegionManager()
+    protected function getPlaceManager()
     {
-        return $this->get('wxr_geo.region.manager');
+        return $this->get('wxr_geo.place.manager');
     }
 }

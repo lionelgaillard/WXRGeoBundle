@@ -35,6 +35,11 @@ abstract class Address implements AddressInterface
     protected $city;
 
     /**
+     * Constructor
+     */
+    public function __construct() {}
+
+    /**
      * {@inheritDoc}
      */
     public function getId()
@@ -191,8 +196,8 @@ abstract class Address implements AddressInterface
      */
     public function getCountry()
     {
-        return $this->getRegion() ?
-            $this->getRegion()->getCountry() : null;
+        return $this->getCity() ?
+            $this->getCity()->getCountry() : null;
     }
 
     /**
@@ -228,7 +233,7 @@ abstract class Address implements AddressInterface
     public function __toString()
     {
         return ($this->getStreet() ? $this->getStreet() : '')
-             . ($this->getStreet() || $this->getCity() ? ', ' : '')
+             . ($this->getStreet() && $this->getCity() ? ', ' : '')
              . ($this->getCity() ? $this->getCity() : '');
     }
 }

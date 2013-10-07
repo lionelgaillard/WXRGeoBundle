@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class CountryAdmin extends Admin
+abstract class CountryAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {

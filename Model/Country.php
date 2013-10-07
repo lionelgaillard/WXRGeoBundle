@@ -40,6 +40,9 @@ abstract class Country implements CountryInterface
     protected $regions;
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->regions = array();

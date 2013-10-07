@@ -1,0 +1,7 @@
+WXR\GeoBundle\Entity\BasePlace:
+    type: mappedSuperclass
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false

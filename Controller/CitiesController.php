@@ -5,8 +5,6 @@ namespace WXR\GeoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-use WXR\GeoBundle\Model\CountryVO;
-
 class CitiesController extends Controller
 {
     public function listAction()

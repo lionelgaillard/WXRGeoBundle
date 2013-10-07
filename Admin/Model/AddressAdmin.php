@@ -7,7 +7,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class AddressAdmin extends Admin
+abstract class AddressAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -21,7 +21,7 @@ class AddressAdmin extends Admin
                 'attr' => array('data-wxr-geo-input' => true)
             ))
             // Force to text type to avoid Intl issue
-            ->add('latitude', 'text', array(
+            ->add('latitude', null, array(
                 'required' => false,
                 //'precision' => 8,
                 'attr' => array('data-wxr-geo-latitude' => true)

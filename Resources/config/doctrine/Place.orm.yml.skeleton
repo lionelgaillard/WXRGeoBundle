@@ -1,0 +1,14 @@
+Application\WXR\GeoBundle\Entity\Place:
+    type: entity
+    table: wxr_geo_place
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    manyToOne:
+        address:
+            targetEntity: Application\WXR\GeoBundle\Entity\Address
+            joinColumn:
+                name: address_id
+                referencedColumnName: id
+                onDelete: CASCADE

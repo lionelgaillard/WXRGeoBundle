@@ -45,6 +45,9 @@ abstract class City implements CityInterface
     protected $addresses;
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->addresses = array();

@@ -13,10 +13,10 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "2.1.*",
+        "symfony/framework-bundle": "~2.1",
         "jms/serializer-bundle": "0.*",
         "sonata-project/easy-extends-bundle": "*",
-        "wxr/common-bundle": "1.0.*"
+        "wxr/common-bundle": "*"
     },
     "autoload": {
         "psr-0": {

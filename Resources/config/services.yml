@@ -84,22 +84,3 @@ services:
                 label: places
                 label_catalogue: %wxr_geo.translation_domain%
                 label_translator_strategy: sonata.admin.label.strategy.underscore
-
-    wxr_geo.place.manager.default:
-        class: WXR\GeoBundle\Entity\PlaceManager
-        arguments: [@doctrine.orm.entity_manager, %wxr_geo.place.class%]
-
-    wxr_geo.place.admin:
-        class: %wxr_geo.place.admin.class%
-        arguments: [ ~, %wxr_geo.place.class%, %wxr_geo.place.admin.controller% ]
-        calls:
-            - [ setTranslationDomain, [ %wxr_geo.translation_domain% ] ]
-            - [ setTemplate, [ edit, WXRGeoBundle:CRUD:edit.html.twig ] ]
-        tags:
-            -
-                name: sonata.admin
-                manager_type: orm
-                group: wxr_geo
-                label: places
-                label_catalogue: %wxr_geo.translation_domain%
-                label_translator_strategy: sonata.admin.label.strategy.underscore

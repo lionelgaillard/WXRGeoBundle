@@ -39,11 +39,6 @@ class WXRGeoExtension extends Extension
         $container->setParameter('wxr_geo.address.admin.class', $config['address']['admin']['class']);
         $container->setParameter('wxr_geo.address.admin.controller', $config['address']['admin']['controller']);
 
-        // Place
-        $container->setAlias('wxr_geo.place.manager', $config['place']['manager']);
-        $container->setParameter('wxr_geo.place.admin.class', $config['place']['admin']['class']);
-        $container->setParameter('wxr_geo.place.admin.controller', $config['place']['admin']['controller']);
-
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

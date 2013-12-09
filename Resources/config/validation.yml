@@ -38,8 +38,3 @@ WXR\GeoBundle\Entity\Address:
     properties:
         street:
             - NotBlank: { message: wxr_geo.address.street.blank }
-
-WXR\GeoBundle\Entity\Place:
-    properties:
-        nmae:
-            - NotBlank: { message: wxr_geo.place.name.blank }
